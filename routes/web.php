@@ -24,6 +24,8 @@ Route::get('test','UserInterfaceController@test')->middleware('auth');
 Route::get('UserPanel','UserInterfaceController@UserPanel')->middleware('auth');
 Route::get('association', 'AssociationController@GetAssociation');
 Route::get('give/{id}', 'AssociationController@GiveToAssociation')->middleware('auth');
+Route::post('transfert', 'AssociationController@VerifAndAcceptDonation')->middleware('auth');
+
 Auth::routes();
 
 

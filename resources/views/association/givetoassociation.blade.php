@@ -1,6 +1,5 @@
 @extends('layout.master')
 @section('content')
-
     <div class="container">
         <hr>
         <div class="row">
@@ -19,12 +18,9 @@
                                         <li class="list-group-item"><strong>Name: </strong>{{$association->name}}</li>
                                         <li class="list-group-item"> <strong>Category: </strong>{{$association->type}}</li>
                                         <li class="list-group-item">{{$association->description}}</li>
-
                                     </ul>
                                 </div>
                             </div>
-                            <!-- here -->
-
                             <!-- Button trigger modal -->
                             <div class="row">
                                 <div class="col-sm-12">
@@ -32,24 +28,29 @@
                                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                                             Faire un don !
                                         </button>
-
                                         <!-- Modal -->
                                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                                        <h4 class="modal-title" id="myModalLabel">Rentrez votre code !</h4>
+                                                        <hr>
                                                     </div>
-
                                                     <div class="form-group">
-
-                                                        <input type="text">
-
-
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                        <div class="row">
+                                                            <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('transfert') }}">
+                                                                {{csrf_field()}}
+                                                                <input type="text" name="code" id="code" >
+                                                                <div class="modal-footer">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="text-center">
+                                                                            <button type="submit" class="btn btn-primary">Donner !</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -57,15 +58,10 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Button -->
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <hr>
-
+        <hr>
 @endsection

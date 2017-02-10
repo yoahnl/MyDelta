@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer id="footer" class="delta">
+<footer id="footer">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
