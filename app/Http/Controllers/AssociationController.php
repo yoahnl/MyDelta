@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Association;
 use App\Code;
+use App\Mail\ThanksForSubribe;
 use Illuminate\Http\Request;
 
 class AssociationController extends Controller
@@ -81,6 +82,7 @@ class AssociationController extends Controller
             {
                 \Session::flash('flash_message',"L'adresse mail ".$email." a bien été enregistré.");
                 \Session::put('type', 'email_done');
+                \Mail::to($email)->send(new ThanksForSubribe);
                 return view('association.givetoassociation', compact('association', 'flashmessage', 'code_id'));
             }
         }

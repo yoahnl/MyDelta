@@ -1,7 +1,14 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container">
+    <hr>
+    @if(Session::has('flash_message'))
+        <div class="alert alert-danger col-lg-4 col-lg-offset-4">
+            <button class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{Session::get('flash_message')}}
+        </div>
+    @endif
+        <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -88,6 +95,14 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="company" class="col-md-4 control-label">Confirmation</label>
+
+                            <div class="col-md-6">
+                                <input id="confirmation" type="text" class="form-control" name="confirmation" required autofocus>
+
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

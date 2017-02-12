@@ -20,14 +20,16 @@ Route::get('/', function ()
     return view('welcome');
 });
 
-Route::get('test','UserInterfaceController@test')->middleware('auth');
-Route::get('UserPanel','UserInterfaceController@UserPanel')->middleware('auth');
+Route::get('test','UserInterfaceController@test');
 Route::get('association', 'AssociationController@GetAssociation');
 Route::get('association/{id}', 'AssociationController@SortAssociation');
-Route::get('give/{id}', 'AssociationController@GiveToAssociation')->middleware('auth');
-Route::post('give/{id}', 'AssociationController@VerifAndAcceptDonation')->middleware('auth');
-Route::post('newsletter/{id}', 'AssociationController@PutEmail')->middleware('auth');
-
+Route::get('give/{id}', 'AssociationController@GiveToAssociation');
+Route::post('give/{id}', 'AssociationController@VerifAndAcceptDonation');
+Route::post('newsletter/{id}', 'AssociationController@PutEmail');
+Route::get('admin', 'AdminController@show')->middleware('auth');
+Route::get('admin/create', 'AdminController@CreateNewCodes')->middleware('auth');
+Route::post('admin/create', 'AdminController@GenerateCode')->middleware('auth');
+Route::get('admin/allcodes', 'AdminController@ShowCodes')->middleware('auth');
 Auth::routes();
 
 
