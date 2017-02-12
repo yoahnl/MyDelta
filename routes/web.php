@@ -23,8 +23,10 @@ Route::get('/', function ()
 Route::get('test','UserInterfaceController@test')->middleware('auth');
 Route::get('UserPanel','UserInterfaceController@UserPanel')->middleware('auth');
 Route::get('association', 'AssociationController@GetAssociation');
+Route::get('association/{id}', 'AssociationController@SortAssociation');
 Route::get('give/{id}', 'AssociationController@GiveToAssociation')->middleware('auth');
-Route::post('transfert', 'AssociationController@VerifAndAcceptDonation')->middleware('auth');
+Route::post('give/{id}', 'AssociationController@VerifAndAcceptDonation')->middleware('auth');
+Route::post('newsletter/{id}', 'AssociationController@PutEmail')->middleware('auth');
 
 Auth::routes();
 

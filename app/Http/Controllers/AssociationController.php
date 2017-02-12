@@ -11,47 +11,86 @@ class AssociationController extends Controller
     public function GetAssociation()
     {
         $associations = Association::all();
-       // echo $association;
-        return view('association.association', compact('associations'));
+        $cates = Association::all();
+        return view('association.association', compact('associations', 'cates'));
     }
 
     public function GiveToAssociation($id)
     {
         $associations = Association::all();
-        foreach ($associations as $association)
-        {
-            if ($association->name == $id)
-            {
-                //echo request()->all();
-
-                return view('association.givetoassociation', compact('association'));
+        foreach ($associations as $association) {
+            if ($association->name == $id) {
+                return view('association.givetoassociation', compact('association', 'flashmessage'));
             }
         }
         return view('errors.notfound');
-//        return $association;
-
     }
 
-    public function VerifAndAcceptDonation ()
+    public function VerifAndAcceptDonation($id)
     {
         $code = request('code');
         $verifs = Code::all();
-
         foreach ($verifs as $verif)
         {
             if (($verif->code == $code))
             {
                 if ($verif->used == true)
                 {
-                    return "code déjà utilisé";
+                    \Session::flash('flash_message', "Oups ! On dirait que ce code est déjà utilisé !");
+                    \Session::put('type', 'warning');
+                    return $this->GiveToAssociation($id);
                 }
-                //echo request()->all();
-                echo "c'est bon";
                 $verif->used = true;
                 $verif->save();
-                return view('transfert');
+                \Session::flash('flash_message',"Grâce à vous, Entreprise ".$verif->linkedto." soutient désormais l’association ".$id." à hauteur de ".$verif->donation ."€.    
+                ");
+                \Session::put('type', 'sucess');
+                $code_id = $verif->id;
+                $associations = Association::all();
+                foreach ($associations as $association)
+                {
+                    if ($association->name == $id) {
+                        return view('association.givetoassociation', compact('association', 'flashmessage', 'code_id'));
+                    }
+                }
+                ;
             }
         }
-        echo "ça va pas";
+        \Session::flash('flash_message', "Ce code n'existe pas...");
+        \Session::put('type', 'danger');
+        return $this->GiveToAssociation($id);
+    }
+
+    public function PutEmail($id)
+    {
+        $email = request('email');
+        $code_id = \Session::get('code');
+        $verifs = Code::all();
+        foreach ($verifs as $verif)
+        {
+            if ($verif->id == $code_id)
+            {
+                $verif->email = $email;
+                $verif->save();
+            }
+        }
+        $associations = Association::all();
+        foreach ($associations as $association)
+        {
+            if ($association->name == $id)
+            {
+                \Session::flash('flash_message',"L'adresse mail ".$email." a bien été enregistré.");
+                \Session::put('type', 'email_done');
+                return view('association.givetoassociation', compact('association', 'flashmessage', 'code_id'));
+            }
+        }
+    }
+
+    public function SortAssociation($id)
+    {
+        $associations = Association::where('type', $id)->get();
+        $cates = Association::all();
+        return view('association.association', compact('associations', 'cates'));
+
     }
 }

@@ -15,7 +15,10 @@ class CreateCodesTable extends Migration
     {
         Schema::create('codes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('code');
+            $table->string('code');
+            $table->string('linkedto');
+            $table->integer('donation');
+            $table->string('email')->nullable();
             $table->boolean('used')->default(false);
             $table->timestamps();
         });
