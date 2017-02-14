@@ -72,6 +72,7 @@ class AssociationController extends Controller
             if ($verif->id == $code_id)
             {
                 $verif->email = $email;
+                $verif->duto = $id;
                 $verif->save();
             }
         }

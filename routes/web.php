@@ -30,6 +30,8 @@ Route::get('admin', 'AdminController@show')->middleware('auth');
 Route::get('admin/create', 'AdminController@CreateNewCodes')->middleware('auth');
 Route::post('admin/create', 'AdminController@GenerateCode')->middleware('auth');
 Route::get('admin/allcodes', 'AdminController@ShowCodes')->middleware('auth');
+Route::get('admin/download', 'AdminController@DownloadCodes')->middleware('auth');
+Route::post('admin/getshit', 'AdminController@MakeShit')->middleware('auth');
 Auth::routes();
 
 

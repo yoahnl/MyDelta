@@ -20,7 +20,7 @@
     <div class="container">
 
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-5 col-lg-offset-2 col-lg-8">
+                <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md- col-lg-offset-2 col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading resume-heading">
                             <div class="row">

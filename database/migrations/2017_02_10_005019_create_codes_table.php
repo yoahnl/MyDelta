@@ -19,6 +19,7 @@ class CreateCodesTable extends Migration
             $table->string('linkedto');
             $table->integer('donation');
             $table->string('email')->nullable();
+            $table->string('duto')->nullable();
             $table->boolean('used')->default(false);
             $table->timestamps();
         });

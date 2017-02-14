@@ -35,7 +35,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="{{URL::to('admin/create')}}">Create new code</a></li>
                             <li><a href="{{URL::to('admin/allcodes')}}">All Codes</a></li>
-
+                            <li><a href="{{URL::to('admin/download')}}">Dowload</a></li>
                         </ul>
                     </li>
                     <li>
