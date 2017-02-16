@@ -2,51 +2,50 @@
 
 @section('content')
     <hr>
-    <nav class="nav-sidebar pull-left col-md-2">
-        <ul class="nav col-md-12">
-            <li class="nav-divider"></li>
-            <li class="active"><a href="javascript:;"><h2>Catégorie</h2></a></li>
-            <li class="nav-divider"></li>
-            <li><a href="{{URL::to('/association')}}">- Toutes catégories</a></li>
-        @foreach($cates as $cate)
 
-            <li><a href="{{URL::to('/association/'.$cate->type)}}">> {{$cate->type}}</a></li>
-            @endforeach
-            <li class="nav-divider"></li>
-        </ul>
-    </nav>
-    @foreach($associations as $association)
-        <a href="{{URL::to('give/'.$association->name)}}" >
-    <div class="container">
+    <section id="blog" class="container">
+        <div class="row">
+            <aside class="col-sm-4 col-sm-push-8">
 
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md- col-lg-offset-2 col-lg-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading resume-heading">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="col-xs-12 col-sm-4">
-                                        <figure>
-                                            <img class="img-circle img-responsive" alt="" src="{{$association->image}}">
-                                        </figure>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-8">
-                                        <ul class="list-group">
-                                            <li class="list-group-item"><strong>Name: </strong>{{$association->name}}</li>
-                                            <li class="list-group-item"> <strong>Category: </strong>{{$association->type}}</li>
-                                            <li class="list-group-item">{{$association->description}}</li>
-                                            <li class="list-group-item">{{$association->url}}</li>
+                <!--/.ads-->
 
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="widget categories">
+                    <h1>Categories</h1>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="arrow">
+                                @foreach($cates as $cate)
+                                   <h4> <li><a href="{{URL::to('/association/'.$cate->type)}}">{{$cate->type}}</a></li> </h4>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
+                </div><!--/.categories-->
+                <div class="widget tags">
+            </aside>
+            <div class="col-sm-8 col-sm-pull-4">
+                @foreach($associations as $association)
+                    <div class="blog">
+                        <div class="blog-item">
+                            <a href="{{URL::to('give/'.$association->name)}}" >
+                                <img class="img-thumbnail img-responsive" alt="" src="{{$association->image}}">
+                                <div class="blog-content">
+                                    <h3>{{$association->name}}</h3>
+                                    <h4>Catégorie: {{$association->type}}</h4>
+                                    <p>{{$association->description}}</p>
+                            </a>
 
-                </div>
+                            <hr>
+                            <a href="{{$association->url}}" >
+
+                                <li class="list-group-item">{{$association->url}}</li>
+                            </a>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div><!--/.blog-item-->
             </div>
-    </div>
-        </a>
-    @endforeach
+            @endforeach
+        </div><!--/.row-->
+    </section><!--/#blog-->
 @endsection

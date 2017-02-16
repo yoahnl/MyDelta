@@ -50,7 +50,7 @@
                             <div class="col-lg-12">
                                 <div class="col-xs-12 col-sm-4">
                                     <figure>
-                                        <img class="img-circle img-responsive" alt="" src="{{$association->image}}">
+                                        <img class="img-thumbnail img-responsive" alt="" src="{{$association->image}}">
                                     </figure>
                                 </div>
                                 <div class="col-xs-12 col-sm-8">

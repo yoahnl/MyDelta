@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use \App\User;
 use \App\Code;
+use \App\Association;
 use Illuminate\Http\Request;
+use Mockery\CountValidator\Exception;
 
 class AdminController extends Controller
 {
@@ -58,27 +60,11 @@ class AdminController extends Controller
     {
         \Excel::create('Codes Groupes', function($excel)
         {
-           /* $form = request();
+            $form = request();
 
-            if ($form->societe || $form->used)
+            if ($form->societe)
             {
-                if ($form->societe && $form->used)
-                {
-                    if ($form->used == "oui")
-                    {
-                        $use = 1;
-                    }
-                    elseif ($form->used == "non")
-                    {
-                        $use = 0;
-                    }
-                    $code = Code::where('linkedto','used', $form->societe, $use)->get();
-                }
-                else
-                {
-                    $code = Code::where('linkedto', $form->societe)->get();
-                }
-
+                $code = Code::where('linkedto', $form->societe)->get();
 
                 // Set the title
                 $excel->setTitle('Code');
@@ -96,7 +82,7 @@ class AdminController extends Controller
                 });
             }
             else
-            {*/
+            {
                 $code = Code::all();
 
 
@@ -114,9 +100,93 @@ class AdminController extends Controller
                     $sheet->setOrientation('landscape');
                     $sheet->fromArray($data, NULL, 'A1');
                 });
-            //}
+            }
 
         })->download('xlsx');
+    }
+
+    public function Delete()
+    {
+        return view('admin.delete');
+    }
+
+    public function DeleteData()
+    {
+        Code::getQuery()->delete();
+        return view('admin.delete');
+    }
+
+    public function CreateNewAssociation()
+    {
+        $associations = Association::all();
+        return view('admin.createnewassociation');
+    }
+
+    public function AddNewAssociation()
+    {
+        $associations = new Association;
+        try {
+            $description = request('description');
+            $associations->name = request('name');
+            $associations->url = request('url');
+            $associations->description = $description;
+            $associations->type = request('type');
+            $associations->image = request('image');
+            $associations->save();
+        }catch (\Exception $e)
+        {
+            \Session::flash('flash_message', 'il y a eu un problème');
+            \Session::put('type', 'error');
+            return view('admin.createnewassociation');
+        }
+        \Session::flash('flash_message', "l'association a été rajouté à la base de donnée");
+        \Session::put('type', 'sucess');
+        return view('admin.createnewassociation');
+    }
+
+    public function GetAssociationName()
+    {
+        $associations = Association::all();
+        return view('admin.getNameAssociationToModif');
+    }
+
+    public function ModifAssociation()
+    {
+        $form = request();
+        $associations = Association::where('name', $form->name)->get();
+        foreach ($associations as $association)
+        {
+            if ($association->name)
+            {
+                $new = $association;
+                return view('admin.modifAssociation', compact('new'));
+            }
+        }
+        \Session::flash('flash_message', "l'association n'existe");
+        \Session::put('type', 'error');
+        return view('admin.getNameAssociationToModif');
+    }
+
+    public function ModifAssociationDone()
+    {
+        $form = request();
+
+        $associations = Association::where('name', $form->oldname)->get();
+        foreach ($associations as $association)
+        {
+            if ($association->name)
+            {
+                $new = $association;
+                $new->name = $form->name;
+                $new->url = $form->url;
+                $new->description = $form->description;
+                $new->type = $form->type;
+                $new->image = $form->image;
+                $new->save();
+                return view('welcome');
+            }
+        }
+        return "poulet";
     }
 }
 

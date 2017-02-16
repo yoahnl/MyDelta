@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use \App\Code;
 
 class ThanksForSubribe extends Mailable
 {
@@ -28,6 +29,7 @@ class ThanksForSubribe extends Mailable
      */
     public function build()
     {
+       // $code = Code::all();
         return $this->view('mail.RegistrationForNewsLetter');
     }
 }

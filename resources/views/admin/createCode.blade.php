@@ -82,7 +82,7 @@
                         </div>
                         <!-- Button -->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+                            <label class="col-md-4 control-label" for="singlebutton"></label>
                             <div class="col-md-4">
                                 <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Générer</button>
                             </div>

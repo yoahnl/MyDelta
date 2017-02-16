@@ -50,11 +50,11 @@ class AssociationController extends Controller
                 $associations = Association::all();
                 foreach ($associations as $association)
                 {
-                    if ($association->name == $id) {
+                    if ($association->name == $id)
+                    {
                         return view('association.givetoassociation', compact('association', 'flashmessage', 'code_id'));
                     }
-                }
-                ;
+                };
             }
         }
         \Session::flash('flash_message', "Ce code n'existe pas...");

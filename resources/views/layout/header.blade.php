@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{URL::to('home')}}"><img src="{{ asset('images/logo.png') }}" width="150" alt="logo"></a>
+            <a class="navbar-brand" href="{{URL::to('home')}}"><img src="{{ asset('images/logo.png') }}" width="240" alt="logo"></a>
         </div>
         <div class="collapse navbar-collapse" >
             <ul class="nav navbar-nav navbar-right">
@@ -36,6 +36,9 @@
                             <li><a href="{{URL::to('admin/create')}}">Create new code</a></li>
                             <li><a href="{{URL::to('admin/allcodes')}}">All Codes</a></li>
                             <li><a href="{{URL::to('admin/download')}}">Dowload</a></li>
+                            <li><a href="{{URL::to('admin/delete')}}">Delete</a></li>
+                            <li><a href="{{URL::to('admin/createassociation')}}">Rajouter association</a></li>
+                            <li><a href="{{URL::to('admin/modif')}}">Modifier association</a></li>
                         </ul>
                     </li>
                     <li>
