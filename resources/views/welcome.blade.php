@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="carousel-content centered">
-                                    <h2 class="animation animated-item-1">Powerful and Responsive Web Design</h2>
+                                    <h2 class="animation animated-item-1">Mydelta plateform</h2>
                                     <p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
                                 </div>
                             </div>

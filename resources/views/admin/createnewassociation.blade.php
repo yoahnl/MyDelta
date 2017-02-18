@@ -22,7 +22,7 @@
             <hr>
         @endif
     </div>
-    <form class="form-horizontal" role="form" method="POST" action="{{URL::to('admin/modif')}}">
+    <form class="form-horizontal" role="form" method="POST" action="{{URL::to('admin/createassociation')}}">
         {{csrf_field()}}
         <h3 class="text-center" >Ajouter une association</h3>
 
