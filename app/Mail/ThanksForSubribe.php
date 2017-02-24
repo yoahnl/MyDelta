@@ -29,7 +29,6 @@ class ThanksForSubribe extends Mailable
      */
     public function build()
     {
-       // $code = Code::all();
         return $this->view('mail.RegistrationForNewsLetter');
     }
 }

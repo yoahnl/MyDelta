@@ -7,7 +7,7 @@
 <body>
 
 <h1>
-    Merci !
+    Merci de soutenir !
 </h1>
 </body>
 </html>

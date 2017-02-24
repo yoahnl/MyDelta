@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use \App\User;
 use \App\Code;
 use \App\Association;
+use \App\Company;
 use Illuminate\Http\Request;
 use Mockery\CountValidator\Exception;
 
@@ -18,11 +19,13 @@ class AdminController extends Controller
     public function CreateNewCodes()
     {
         $newcode = NULL;
-        return view('admin.createCode', compact('newcode'));
+        $company = Company::all();
+        return view('admin.createCode', compact('newcode', 'company'));
     }
 
     public function GenerateCode()
     {
+        $company = Company::all();
         $codescheme =  request();
         $compt = 1;
         $mytime = \Carbon\Carbon::now();
@@ -31,7 +34,7 @@ class AdminController extends Controller
             $rand = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 8)), 0, 8);
             Code::insert(array(
                 'code' => $rand,
-                'linkedto' => $codescheme->societe,
+                'linkedto' => $codescheme->company_name,
                 'donation' => $codescheme->coupon,
                 'created_at' => $mytime,
                 'updated_at' => $mytime
@@ -41,7 +44,7 @@ class AdminController extends Controller
         \Session::flash('flash_message',"L'adresse mail a bien été enregistré.");
         \Session::put('date', $mytime);
         $newcode = Code::where('created_at', $mytime)->get();
-        return view('admin.createCode', compact('newcode'));
+        return view('admin.createCode', compact('newcode', 'company'));
     }
 
     public function ShowCodes()
@@ -53,7 +56,8 @@ class AdminController extends Controller
 
     public function DownloadCodes()
     {
-        return view('admin.download');
+        $company = Company::all();
+        return view('admin.download', compact('company'));
     }
 
     public function MakeShit()
@@ -124,11 +128,26 @@ class AdminController extends Controller
 
     public function AddNewAssociation()
     {
+
+        $checks = Association::all();
+
+        foreach ($checks as $check)
+        {
+            if ($check->name == request('name'))
+            {
+                \Session::flash('flash_message', "l'association existe déjà !");
+                \Session::put('type', 'error');
+                return view('admin.CreateNewCompany');
+            }
+        }
         $associations = new Association;
         try {
             $description = request('description');
+            $small_description = request('small_description');
             $associations->name = request('name');
             $associations->url = request('url');
+            $associations->url_facebook = request('url_facebook');
+            $associations->small_description = $small_description;
             $associations->description = $description;
             $associations->type = request('type');
             $associations->image = request('image');
@@ -147,7 +166,7 @@ class AdminController extends Controller
     public function GetAssociationName()
     {
         $associations = Association::all();
-        return view('admin.getNameAssociationToModif');
+        return view('admin.getNameAssociationToModif', compact('associations'));
     }
 
     public function ModifAssociation()
@@ -187,6 +206,89 @@ class AdminController extends Controller
             }
         }
         return "poulet";
+    }
+
+    public function NewCompany()
+    {
+        return view('admin.CreateNewCompany');
+    }
+
+    public function CreateCompany()
+    {
+        $checks = Company::all();
+
+        foreach ($checks as $check)
+        {
+            if ($check->name == request('name'))
+            {
+                \Session::flash('flash_message', "l'entreprise existe déjà !");
+                \Session::put('type', 'error');
+                return view('admin.CreateNewCompany');
+            }
+        }
+        $company = new Company;
+
+        try {
+            $company->name = request('name');
+            $company->save();
+        }catch (\Exception $e)
+        {
+            \Session::flash('flash_message', 'il y a eu un problème');
+            \Session::put('type', 'error');
+            return view('admin.CreateNewCompany');
+        }
+        \Session::flash('flash_message', "l'entreprise a été rajouté à la base de donnée");
+        \Session::put('type', 'sucess');
+        return view('admin.CreateNewCompany');
+    }
+
+    public function ToArray()
+    {
+        $alls = Association::all();
+        $new = array();
+        foreach ($alls as $all)
+        {
+            array_push($new, $all->name);
+        }
+        return $new;
+    }
+
+    public function SetAssociationToCompany()
+    {
+        $companys = Company::all();
+        $associations = Association::all();
+        $companys_association_array;
+
+        foreach ($companys as $company)
+        {
+            $companys_association_array = explode(",", $company->association);
+        }
+
+        return view('admin.associationToCompany', compact('companys', 'associations'));
+    }
+
+    public function GetAssociationToCompany()
+    {
+        $checks = Company::all();
+        $form = request();
+        try {
+            foreach ($checks as $check) {
+                $nameToLook = "association_" . $check->name;
+                $new = $form->$nameToLook;
+                $str = implode(',', $new);
+                $check->association = $str;
+                $check->save();
+            }
+        }
+        catch (\Exception $e)
+        {
+            \Session::flash('flash_message', 'Une entreprise ne peut pas soutenir aucune association enfin ! Sinon qu\'est qu \'elle ferait ici ?');
+            \Session::put('type', 'error');
+            $companys = Company::all();
+            $associations = Association::all();
+            return view('admin.associationToCompany', compact('companys', 'associations'));
+        }
+        return view('welcome');
     }
 }
 

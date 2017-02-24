@@ -4,12 +4,11 @@
 
     @if(Session::has('flash_message'))
         <h3 class="text-center" >Nouveaux coupons </h3>
+
         <hr>
-        <div class="table-responsive">
-            <div class="fixed-table-container">
-                <div class="fixed-table-header">
-                    <table></table>
-                </div>
+        <div class="row">
+            <div class="col s6 ">
+
                 <div class="fixed-table-body">
                     <table id="grid" class="table table-striped table-hover" data-toolbar="#toolbargrid" data-pagination="true" data-search="true">
                         <thead>
@@ -40,8 +39,6 @@
                                 <td class="text-left" style="">{{$code->code}}</td>
                                 <td class="text-left" style="">{{$code->donation}}</td>
                                 <td class="text-left" style="">{{$code->linkedto}}</td>
-
-                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -49,48 +46,73 @@
                     </table>
                 </div>
                 @endif
-                <form class="form-horizontal" role="form" method="POST" action="{{URL::to('admin/create')}}">
-                    {{csrf_field()}}
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <div class="card-panel hoverable">
+                            <form class="form-horizontal" role="form" method="POST" action="{{URL::to('admin/create')}}">
 
-                    <fieldset>
+                                {{csrf_field()}}
 
-                        <!-- Form Name -->
-                        <h1 class="text-center">Générateur de code</h1>
-                        <hr>
-                        <!-- Select Basic -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="textinput">Nombre de code</label>
-                            <div class="col-md-4">
-                                <input id="valeur" name="valeur" type="text" placeholder="nombre de code à générer" class="form-control input-md">
-                            </div>
+                                <fieldset>
+
+                                    <!-- Form Name -->
+                                    <div class="row">
+                                        <div class="col s1 offset-s2"></div>
+                                        <h1 class="text-center">Générateur de code</h1>
+                                    </div>
+
+                                    <!-- Select Basic -->
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="valeur" name="valeur" type="text" class="validate">
+                                            <label for="valeur">Nombre de code</label>
+                                        </div>
+                                    </div>
+                                    <!-- Text input-->
+                                    <div class="input-field col s12">
+                                        <select>
+                                            <option value="" disabled selected>Selectionner une entreprise</option>
+                                            @foreach($company as $companys)
+                                                <option value="{{$companys->name}}">{{$companys->name}}</option>
+                                            @endforeach
+                                        </select>
+                                        <label>Entreprises</label>
+                                    </div>
+
+                                    <!-- Select Basic -->
+
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="coupon" name="coupon" type="text" class="validate">
+                                            <label for="coupon">Valeur des coupons</label>
+                                        </div>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                                        <div class="col-md-4">
+                                            <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Générer</button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
                         </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="textinput">Nom de la société</label>
-                            <div class="col-md-4">
-                                <input id="societe" name="societe" type="text" placeholder="nom de la société" class="form-control input-md">
-                            </div>
-                        </div>
-
-                        <!-- Select Basic -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="textinput">Valeur des coupons</label>
-                            <div class="col-md-4">
-                                <input id="coupon" name="coupon" type="text" placeholder="valeur des coupons" class="form-control input-md">
-                            </div>
-                        </div>
-                        <!-- Button -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="singlebutton"></label>
-                            <div class="col-md-4">
-                                <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">Générer</button>
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </form>
+                    </div>
+                </div>
             </div>
+        </div>
+        </div>
 @endsection
 
+@section('js')
+    <script>
+
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+
+@endsection
 

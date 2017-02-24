@@ -11,14 +11,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('home', function ()
-{
-    return view('welcome');
-});
 Route::get('/', function ()
 {
     return view('welcome');
 });
+
+Route::get('contact', function ()
+{
+    return view('contact');
+});
+
+
 
 Route::get('association', 'AssociationController@GetAssociation');
 Route::get('association/{id}', 'AssociationController@SortAssociation');
@@ -38,6 +41,13 @@ Route::post('admin/createassociation', 'AdminController@AddNewAssociation')->mid
 Route::get('admin/modif', 'AdminController@GetAssociationName')->middleware('auth');
 Route::post('admin/modif', 'AdminController@ModifAssociation')->middleware('auth');
 Route::post('admin/modifdone', 'AdminController@ModifAssociationDone')->middleware('auth');
+Route::get('admin/newcompany', 'AdminController@NewCompany')->middleware('auth');
+Route::post('admin/newcompany', 'AdminController@CreateCompany')->middleware('auth');
+Route::get('admin/tocompanyall', 'AdminController@AssociationToCompany')->middleware('auth');
+Route::get('admin/setcompany', 'AdminController@SetAssociationToCompany')->middleware('auth');
+Route::post('admin/setcompany', 'AdminController@GetAssociationToCompany')->middleware('auth');
+Route::get('company/{id}', 'CompanyController@ShowCompany');
+Route::get('company', 'CompanyController@ShowAllCompany');
 Auth::routes();
 
 

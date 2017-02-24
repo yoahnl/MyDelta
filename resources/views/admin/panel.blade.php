@@ -36,6 +36,14 @@
                     </div>
                 </div>
             </div>
+
+
+
+        <!-- copy these lines to your document: -->
+
+        <div id="sanstitre_hype_container" style="margin:auto;position:relative;width:640px;height:400px;overflow:hidden;" aria-live="polite">
+            <script type="text/javascript" charset="utf-8" src="Sans%20titre.hyperesources/sanstitre_hype_generated_script.js?21459"></script>
+        </div>
         </div>
     </div>
     </div>

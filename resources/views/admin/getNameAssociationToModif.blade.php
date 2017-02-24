@@ -32,9 +32,16 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Nom de l'association</label>
-                <div class="col-md-4">
-                    <input id="name" name="name" type="text" placeholder="Nom de l'association" class="form-control input-md">
+                <label class="col-md-4 control-label" for="textinput">Nom de la société</label>
+                <div class="col-md-12">
+                    <div class='col-md-7'>
+                        <select class="selectpicker" data-live-search="true" id="name" name="name">
+                            <option data-tokens=""></option>
+                            @foreach($associations as $association)
+                                <option data-tokens="{{$association->name}}">{{$association->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
             </div>
 

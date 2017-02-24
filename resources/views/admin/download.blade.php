@@ -14,8 +14,15 @@
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Nom de la société</label>
-            <div class="col-md-4">
-                <input id="societe" name="societe" type="text" placeholder="nom de la société" class="form-control input-md">
+            <div class="col-md-12">
+                <div class='col-md-7'>
+                    <select class="selectpicker" data-live-search="true" id="societe" name="societe">
+                        <option data-tokens=""></option>
+                        @foreach($company as $companys)
+                            <option data-tokens="{{$companys->name}}">{{$companys->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
         </div>
 

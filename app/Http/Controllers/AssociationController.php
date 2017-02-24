@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Association;
 use App\Code;
+use \App\Company;
 use App\Mail\ThanksForSubribe;
 use Illuminate\Http\Request;
 
@@ -31,10 +32,24 @@ class AssociationController extends Controller
     {
         $code = request('code');
         $verifs = Code::all();
+        $companys = Company::all();
         foreach ($verifs as $verif)
         {
             if (($verif->code == $code))
             {
+                foreach ($companys as $company)
+                {
+                    if ($company->name == $verif->linkedto)
+                    {
+                        $association_names = explode(',', $company->association);
+                    }
+                }
+                    if (!in_array($id, $association_names))
+                    {
+                        \Session::flash('flash_message', "Oups ! On dirait que l'association n'est pas selectionné par votre entreprise");
+                        \Session::put('type', 'warning');
+                        return $this->GiveToAssociation($id);
+                    }
                 if ($verif->used == true)
                 {
                     \Session::flash('flash_message', "Oups ! On dirait que ce code est déjà utilisé !");

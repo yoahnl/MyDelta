@@ -17,6 +17,8 @@ class CreateAssociationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url');
+            $table->string('url_facebook');
+            $table->string('small_description');
             $table->text('description');
             $table->string('image');
             $table->string('type');
