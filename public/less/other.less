@@ -1,0 +1,125 @@
+// out: ../css/other.css, sourcemap: true, compress: true
+@white: white;
+@pink : #FD7378;
+@blue : #42a5f5;
+@orange:#ffb74d;
+@orange-light: #ffcc80;
+@grey: #605E5E;
+@blue-hover: #bbdefb;
+body{
+  h1{
+    color: @grey;
+  }
+  nav{
+    .logo-head{
+      margin-top: 17px;
+      margin-left: 10px;
+    }
+  }
+  .tilte-enterprise{
+    color: @grey !important;
+    border-bottom: 1px solid @pink;
+  }
+  .card-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 160px;
+    max-height: 160px;
+  }
+  .btn-info-card a{
+    background: @blue;
+  }
+  .btn-info-card a:hover{
+    background: @blue-hover;
+  }
+  .card-image img{
+    width: inherit !important;
+  }
+  .content{
+    width: 100%;
+    margin-left: 12.5%;
+  }
+  .btn-info-card{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .enterprise{
+    height: 613px;
+  }
+  .img-feature{
+    width: 90px;
+    height: 90px;
+    fill: @white;
+    fill-opacity: 1;
+    stroke: white;
+  }
+  .text-svg{
+    color: white;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0;
+  }
+  .flexcol{
+    display: flex;
+    justify-content: space-around;
+    background: #4CC1EA;
+  }
+  .feature{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .localisation{
+    display: flex;
+    align-items: center;
+  }
+  .localisation span{
+    margin-left: 10px;
+  }
+  .code-card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  footer{
+    background-color: #333333;
+    width: 100%;
+    margin: 0;
+    color: @white;
+    .row{
+      margin: 0;
+    }
+    a{
+      color: @white;
+      border-bottom: 1px solid @white;
+    }
+    a:hover{
+      color: @blue;
+      border-bottom: 1px solid @blue;
+    }
+    ul.list-social-networks{
+      display : inline-flex;
+      li{
+        a:hover{
+          border-bottom: 0px;
+        }
+        a{
+          border: none;
+        }
+        padding-left: 10px;
+        i{
+          color: @white;
+        }
+        i:hover{
+          color: @blue;
+        }
+      }
+    }
+  }
+
+}
