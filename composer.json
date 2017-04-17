@@ -12,7 +12,8 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
         "maatwebsite/excel": "~2.1.0",
-        "serverfireteam/panel": "^1.6"
+        "serverfireteam/panel": "^1.6",
+        "tcg/voyager": "^0.11.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

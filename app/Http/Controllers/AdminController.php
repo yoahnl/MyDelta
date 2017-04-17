@@ -6,11 +6,16 @@ use \App\User;
 use \App\Code;
 use \App\Association;
 use \App\Company;
+use \App\Mail\GetContact;
 use Illuminate\Http\Request;
 use Mockery\CountValidator\Exception;
 
 class AdminController extends Controller
 {
+    public function Contact()
+    {
+        return view('contact');
+    }
     public function show()
     {
         $user = User::all();
@@ -31,7 +36,7 @@ class AdminController extends Controller
         $mytime = \Carbon\Carbon::now();
         while ($compt <= $codescheme->valeur)
         {
-            $rand = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 8)), 0, 8);
+            $rand = $codescheme->company_name.substr(str_shuffle(str_repeat("0123456789", 4)), 0, 4);
             Code::insert(array(
                 'code' => $rand,
                 'linkedto' => $codescheme->company_name,
@@ -144,6 +149,13 @@ class AdminController extends Controller
         try {
             $description = request('description');
             $small_description = request('small_description');
+            $left_content1 = request('left_content1');
+            $left_content2 = request('left_content2');
+            $left_content3 = request('left_content3');
+            $right_content1 = request('right_content1');
+            $right_content2 = request('right_content2');
+            $title1 = request('title1');
+            $associations->location = request('location');
             $associations->name = request('name');
             $associations->url = request('url');
             $associations->url_facebook = request('url_facebook');
@@ -151,9 +163,23 @@ class AdminController extends Controller
             $associations->description = $description;
             $associations->type = request('type');
             $associations->image = request('image');
+            $associations->title1 = $title1;
+            $associations->title2 = request('title2');
+            $associations->left_title1 = request('left_title1');
+            $associations->left_title2 = request('left_title2');
+            $associations->left_title3 = request('left_title3');
+            $associations->right_title1 = request('right_title1');
+            $associations->right_title2 = request('right_title2');
+            $associations->left_content1 = $left_content1;
+            $associations->left_content2 = $left_content2;
+            $associations->left_content3 = $left_content3;
+            $associations->right_content1 = $right_content1;
+            $associations->right_content2 = $right_content2;
+
             $associations->save();
         }catch (\Exception $e)
         {
+            echo $e;
             \Session::flash('flash_message', 'il y a eu un problème');
             \Session::put('type', 'error');
             return view('admin.createnewassociation');
@@ -202,7 +228,7 @@ class AdminController extends Controller
                 $new->type = $form->type;
                 $new->image = $form->image;
                 $new->save();
-                return view('welcome');
+                return redirect('/');
             }
         }
         return "poulet";
@@ -230,6 +256,7 @@ class AdminController extends Controller
 
         try {
             $company->name = request('name');
+            $company->image = request('company_image');
             $company->save();
         }catch (\Exception $e)
         {
@@ -272,7 +299,8 @@ class AdminController extends Controller
         $checks = Company::all();
         $form = request();
         try {
-            foreach ($checks as $check) {
+            foreach ($checks as $check)
+            {
                 $nameToLook = "association_" . $check->name;
                 $new = $form->$nameToLook;
                 $str = implode(',', $new);
@@ -288,7 +316,24 @@ class AdminController extends Controller
             $associations = Association::all();
             return view('admin.associationToCompany', compact('companys', 'associations'));
         }
-        return view('welcome');
+        return redirect('/');
+    }
+
+    /**
+     *
+     */
+    public function SendMailToSupport()
+    {
+        $infos = request();
+        $data = array('email' => $infos->email, 'name' => $infos->name,'subject' => $infos->subject,'body_message' => $infos->message);
+        \Mail::send('Mail.GetContact', $data,
+            function ($message)
+            {
+                $message->to("yoahn.l@me.com");
+                $message->subject('ceci est un test');
+            }
+        );
+        return redirect('/');
     }
 }
 

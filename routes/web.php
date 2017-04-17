@@ -22,8 +22,13 @@ Route::get('contact', function ()
 });
 
 
-
+Route::get('test', function()
+{
+ return "poulet";
+}
+);
 Route::get('association', 'AssociationController@GetAssociation');
+Route::get('contact', 'AdminController@Contact');
 Route::get('association/{id}', 'AssociationController@SortAssociation');
 Route::get('give/{id}', 'AssociationController@GiveToAssociation');
 Route::post('give/{id}', 'AssociationController@VerifAndAcceptDonation');
@@ -48,6 +53,12 @@ Route::get('admin/setcompany', 'AdminController@SetAssociationToCompany')->middl
 Route::post('admin/setcompany', 'AdminController@GetAssociationToCompany')->middleware('auth');
 Route::get('company/{id}', 'CompanyController@ShowCompany');
 Route::get('company', 'CompanyController@ShowAllCompany');
+Route::post('contact','AdminController@SendMailToSupport');
 Auth::routes();
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
 
 

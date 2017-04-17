@@ -2,7 +2,6 @@
 
 @section('content')
 
-    <hr>
     <div class="container">
 
         @if(Session::has('flash_message'))
@@ -22,31 +21,43 @@
             <hr>
         @endif
     </div>
-    <form class="form-horizontal" role="form" method="POST" action="{{URL::to('admin/newcompany')}}">
-        {{csrf_field()}}
-        <h3 class="text-center" >Ajouter une nouvelle entreprise à la base de donnée</h3>
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card-panel hoverable">
+                <form class="form-horizontal" role="form" method="POST" action="{{URL::to('admin/newcompany')}}">
+                    {{csrf_field()}}
+                    <h3 class="text-center" >Ajouter une nouvelle entreprise à la base de donnée</h3>
 
-        <fieldset>
+                    <fieldset>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="textinput">Nom de l'entreprise</label>
-                <div class="col-md-4">
-                    <input id="name" name="name" type="text" placeholder="nom de l'entreprise" class="form-control input-md">
-                </div>
+                        <!-- Text input-->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="name" name="name" type="text" class="validate">
+                                <label for="name">nom de l'entreprise</label>
+                            </div>
+                        </div>
+
+
+                        <!-- Text input-->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="company_image" name="company_image" type="text" class="validate">
+                                <label for="name">Image de l'entreprise</label>
+                            </div>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="singlebutton"></label>
+                            <div class="col-md-4">
+                                <button id="singlebutton" name="singlebutton" class="btn btn-primary">Ajouter</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
             </div>
-
-
-
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="singlebutton">Ajouter l'entreprise</label>
-                <div class="col-md-4">
-                    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Ajouter</button>
-                </div>
-            </div>
-
-        </fieldset>
-    </form>
-
+        </div>
+    </div>
 @endsection

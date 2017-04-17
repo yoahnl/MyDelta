@@ -18,14 +18,23 @@ class CompanyController extends Controller
     }
     function ShowCompany($id)
     {
-        $companys =Company::all();
+        $companys = Company::where('name', $id)->get();
+        $codes = Code::all();
         foreach ($companys as $company)
         {
-            if ($company->name == $id)
+            $associations = explode(',', $company->association);
+            $used_codes = 0;
+            $sommes = 0;
+            foreach ($codes as$code)
             {
-                $associations = explode(',', $company->association);
-                return view('company.showCompany', compact('company', 'associations', 'id'));
+                if ($code->used == true && $code->linkedto == $company->name)
+                {
+                    $used_codes++;
+                    $sommes = $code->donation + $sommes;
+                }
             }
+            $number_associations = 0;
+            return view('company.showCompany', compact('company', 'associations', 'id', 'used_codes', 'sommes'));
         }
     }
 }

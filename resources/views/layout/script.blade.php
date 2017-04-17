@@ -30,5 +30,6 @@
 
 <script>
     $('div.alert').not('.alert-info').delay('2000').slideUp('2000');
+    $(".button-collapse").sideNav();
 </script>
 </html>
