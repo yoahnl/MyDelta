@@ -1,0 +1,5 @@
+{
+    "require": {
+        "cviebrock/laravel-mangopay": "^0.9.4"
+    }
+}

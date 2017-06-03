@@ -285,12 +285,11 @@ class AdminController extends Controller
         $companys = Company::all();
         $associations = Association::all();
         $companys_association_array;
-
         foreach ($companys as $company)
         {
-            $companys_association_array = explode(",", $company->association);
+            $companys_association_array = json_decode($company->association);
         }
-
+        //return "poulet";
         return view('admin.associationToCompany', compact('companys', 'associations'));
     }
 
@@ -303,8 +302,8 @@ class AdminController extends Controller
             {
                 $nameToLook = "association_" . $check->name;
                 $new = $form->$nameToLook;
-                $str = implode(',', $new);
-                $check->association = $str;
+                $tmp = json_encode($new);
+                $check->association = $tmp;
                 $check->save();
             }
         }
@@ -326,7 +325,7 @@ class AdminController extends Controller
     {
         $infos = request();
         $data = array('email' => $infos->email, 'name' => $infos->name,'subject' => $infos->subject,'body_message' => $infos->message);
-        \Mail::send('Mail.GetContact', $data,
+        \Mail::send('mail.GetContact', $data,
             function ($message)
             {
                 $message->to("yoahn.l@me.com");

@@ -3,36 +3,8 @@
 
 
 
-    <li class="active">
-        <a href="http://127.0.0.1:8000/admin" target="_self">
-            <span class="icon voyager-boat"></span>
-            <span class="title">Dashboard</span>
-        </a>
-    </li>
+    {{menu('admin')}}
 
-
-    <li class="">
-        <a href="http://127.0.0.1:8000/admin/roles" target="_self">
-            <span class="icon voyager-lock"></span>
-            <span class="title">Roles</span>
-        </a>
-    </li>
-
-
-    <li class="">
-        <a href="http://127.0.0.1:8000/admin/users" target="_self">
-            <span class="icon voyager-person"></span>
-            <span class="title">Users</span>
-        </a>
-    </li>
-
-
-    <li class="">
-        <a href="http://127.0.0.1:8000/admin/media" target="_self">
-            <span class="icon voyager-images"></span>
-            <span class="title">Media</span>
-        </a>
-    </li>
 
 
 
@@ -51,7 +23,8 @@
 
 
                     <li class="">
-                        <a href="http://127.0.0.1:8000/admin/menus" target="_self">
+
+                        <a href="{{URL::to('admin/menus')}}" target="_self">
                             <span class="icon voyager-list"></span>
                             <span class="title">Menu Builder</span>
                         </a>
@@ -59,10 +32,13 @@
 
 
                     <li class="">
-                        <a href="http://127.0.0.1:8000/admin/database" target="_self">
+                        <a href="{{URL::to('admin/databases')}}" target="_self">
                             <span class="icon voyager-data"></span>
                             <span class="title">Database</span>
                         </a>
                     </li>
 
                 </ul>
+            </div>
+        </div>
+    </li>

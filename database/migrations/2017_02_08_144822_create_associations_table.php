@@ -33,7 +33,14 @@ class CreateAssociationsTable extends Migration
             $table->string('right_title2');
             $table->text('right_content1');
             $table->text('right_content2');
-            $table->string('image');
+            $table->string('logo');
+            $table->string('bg-image');
+            $table->string('cell_1_image');
+            $table->string('cell_2_image');
+            $table->string('cell_3_image');
+            $table->string('carrousel_1_image');
+            $table->string('carrousel_2_image');
+            $table->string('carrousel_3_image');
             $table->string('type');
             $table->timestamps();
         });

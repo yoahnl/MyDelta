@@ -22,7 +22,7 @@ class CompanyController extends Controller
         $codes = Code::all();
         foreach ($companys as $company)
         {
-            $associations = explode(',', $company->association);
+            $associations = json_decode($company->association);
             $used_codes = 0;
             $sommes = 0;
             foreach ($codes as$code)

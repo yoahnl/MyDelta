@@ -22,11 +22,7 @@ Route::get('contact', function ()
 });
 
 
-Route::get('test', function()
-{
- return "poulet";
-}
-);
+
 Route::get('association', 'AssociationController@GetAssociation');
 Route::get('contact', 'AdminController@Contact');
 Route::get('association/{id}', 'AssociationController@SortAssociation');
@@ -57,8 +53,48 @@ Route::post('contact','AdminController@SendMailToSupport');
 Auth::routes();
 
 
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
 
+// Test for Stripe
+
+
+Route::get('stripe', 'AddMoneyController@getStripeTest');
+Route::post('stripe', 'AddMoneyController@postStripeTest');
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

@@ -20,7 +20,8 @@ class AssociationController extends Controller
     public function GiveToAssociation($id)
     {
         $associations = Association::all();
-        foreach ($associations as $association) {
+        foreach ($associations as $association)
+        {
             if ($association->name == $id) {
                 return view('association.givetoassociation', compact('association', 'flashmessage'));
             }

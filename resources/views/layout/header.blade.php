@@ -2,9 +2,10 @@
 <?php
 $companys = \App\Company::all();
 ?>
+<div class="navbar-fixed">
 <nav>
     <div class="nav-wrapper">
-        <a href="{{URL::to('/')}}" class="brand-logo"><img src="{{ asset('images/logo/logo.png') }}" width="200"></a>
+        <a href="{{URL::to('/')}}" class="brand-logo"><img src="{{ asset('images/logo/logo.png') }}" width="200" ></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
             <li><a href="{{URL::to('association')}}">Associations</a></li>
@@ -49,3 +50,4 @@ $companys = \App\Company::all();
         </ul>
     </div>
 </nav>
+</div>
