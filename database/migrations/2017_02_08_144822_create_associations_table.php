@@ -18,7 +18,6 @@ class CreateAssociationsTable extends Migration
             $table->string('name');
             $table->string('url');
             $table->string('url_facebook');
-            $table->string('small_description');
             $table->text('description');
             $table->string('location');
             $table->string('title1')->nullable();
