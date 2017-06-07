@@ -14,7 +14,7 @@
 Route::get('/', function ()
 {
     return view('welcome');
-});
+})->middleware('auth');
 
 Route::get('contact', function ()
 {
@@ -64,6 +64,11 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('stripe', 'AddMoneyController@getStripeTest');
 Route::post('stripe', 'AddMoneyController@postStripeTest');
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

@@ -17,7 +17,6 @@ class CreateAssociationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url');
-            $table->string('url_facebook');
             $table->text('description');
             $table->string('location');
             $table->string('title1')->nullable();
@@ -40,6 +39,10 @@ class CreateAssociationsTable extends Migration
             $table->string('carrousel_1_image');
             $table->string('carrousel_2_image');
             $table->string('carrousel_3_image');
+            $table->string('facebook');
+            $table->string('twitter');
+            $table->string('instagram');
+            $table->string('youtube');
             $table->string('type');
             $table->timestamps();
         });
