@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/other.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/faq.css') }}">
 
     <script src="https://use.fontawesome.com/cc93d367a5.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

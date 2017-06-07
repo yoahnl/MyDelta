@@ -1,13 +1,17 @@
 <?php $__env->startSection('content'); ?>
     <div class="parallax-container">
         <div class="row">
-            <div class="col m6 push-m3">
-                <h1 style="text-align: center; color: white; font-size: 2.5em; margin-top: 5em">SOUTENEZ DES ASSOCIATIONS CHOISIES PAR VOS CLIENTS ET COLLABORATEURS</h1>
+            <div class="col m12">
+                <div class="col m6 push-m3">
+                    <h1 style="text-align: center; color: white; font-size: 2.5em; margin-top: 5em">SOUTENEZ DES ASSOCIATIONS CHOISIES PAR VOS CLIENTS ET COLLABORATEURS</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12" style="display: flex;justify-content: center">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Parlons en !</button>
+                </div>
             </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-        </button>
         <div class="parallax"><img src="images/home/unknown.jpg.jpeg">
         </div>
     </div>
