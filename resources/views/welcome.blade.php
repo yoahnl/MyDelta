@@ -9,7 +9,7 @@
             </div>
             <div class="row">
                 <div class="col s12" style="display: flex;justify-content: center">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Parlons en !</button>
+                    <a class="btn waves-effect waves-light" type="submit" name="action" href="#parlons_en">Parlons en !</a>
                 </div>
             </div>
         </div>
@@ -243,50 +243,92 @@ color: #605E5E;
             </a>
         </div>
     </section>
-    <div class="row contact grey lighten-5">
+    <form class="form-horizontal" role="form" method="POST" action="{{ url('contact') }}">
+    {{csrf_field()}}
+        <div class="row contact grey lighten-5">
 
-        <div class="col m6 push-m3">
-            <h3 class="center-align">
-                UNE QUESTION ?
-            </h3>
-            <hr class="hr-mydelta">
-            <div class="row">
-                <div class="input-field col m5 s12 push-m1">
-                    <i class="material-icons prefix">account_circle</i>
-                    <input id="name" name="name" type="text" class="validate">
-                    <label for="icon_prefix" class="">Nom</label>
+            <div class="col m6 push-m3">
+                <h3 class="center-align">
+                    UNE QUESTION ?
+                </h3>
+                <hr class="hr-mydelta">
+                <div class="row">
+                    <div class="input-field col m5 s12 push-m1">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="name" name="name" type="text" class="validate">
+                        <label for="icon_prefix" class="">Nom</label>
+                    </div>
+                    <div class="input-field col m5 s12 push-m1">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" name="email" type="email" class="validate">
+                        <label for="icon_prefix">Email</label>
+                    </div>
                 </div>
-                <div class="input-field col m5 s12 push-m1">
-                    <i class="material-icons prefix">email</i>
-                    <input id="email" name="email" type="email" class="validate">
-                    <label for="icon_prefix">Email</label>
+                <div class="row">
+                    <div class="input-field col m10 s12 push-m1">
+                        <i class="material-icons prefix">chat_bubble_outline</i>
+                        <input id="email" name="email" type="text" class="validate">
+                        <label for="icon_prefix">Objet</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col m10 s12 push-m1">
-                    <i class="material-icons prefix">chat_bubble_outline</i>
-                    <input id="email" name="email" type="text" class="validate">
-                    <label for="icon_prefix">Objet</label>
+                <div class="row">
+                    <div class="input-field col m10 s12 push-m1">
+                        <i class="small material-icons">mode_edit</i>
+                        <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                        <label for="textarea1"></label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col m10 s12 push-m1">
-                    <i class="small material-icons">mode_edit</i>
-                    <textarea id="message" name="message" class="materialize-textarea"></textarea>
-                    <label for="textarea1"></label>
+                <div class="row center-align">
+                    <button class="waves-effect waves-light btn btn-align-center btn-large" type="submit"> <i class="material-icons right">send</i>ENVOYER</button>
                 </div>
-            </div>
-            <div class="row center-align">
-                <a class="waves-effect waves-light btn btn-align-center btn-large" href="http://yoahnlinard.eu/contact"> <i class="material-icons right">send</i>ENVOYER</a>
             </div>
         </div>
-    </div>
+    </form>
 
     <!-- End of Formulaire de contact -->
 
 
 
-
+    <div id="parlons_en" class="modal bottom-sheet">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form" method="POST" action="{{ url('contact') }}">
+                {{csrf_field()}}
+                <div class="row contact grey lighten-5">
+                    <div class="col m6 push-m3">
+                        <div class="row">
+                            <div class="input-field col m5 s12 push-m1">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="name" name="name" type="text" class="validate">
+                                <label for="icon_prefix" class="">Nom</label>
+                            </div>
+                            <div class="input-field col m5 s12 push-m1">
+                                <i class="material-icons prefix">email</i>
+                                <input id="email" name="email" type="email" class="validate">
+                                <label for="icon_prefix">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col m10 s12 push-m1">
+                                <i class="material-icons prefix">chat_bubble_outline</i>
+                                <input id="email" name="email" type="text" class="validate">
+                                <label for="icon_prefix">Objet</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col m10 s12 push-m1">
+                                <i class="small material-icons">mode_edit</i>
+                                <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                                <label for="textarea1"></label>
+                            </div>
+                        </div>
+                        <div class="row center-align">
+                            <button class="waves-effect waves-light btn btn-align-center" type="submit"> <i class="material-icons right">send</i>ENVOYER</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 @endsection
 
@@ -299,6 +341,12 @@ color: #605E5E;
 
     </script>
 
+    <script>
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.parlons_en').modal();
+        });
+    </script>
     <script type="text/javascript">
 
         $(document).ready(function(){

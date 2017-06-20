@@ -287,6 +287,7 @@ class AdminController extends Controller
         $companys_association_array;
         foreach ($companys as $company)
         {
+           // var_dump($company->name);
             $companys_association_array = json_decode($company->association);
         }
         //return "poulet";
@@ -297,6 +298,7 @@ class AdminController extends Controller
     {
         $checks = Company::all();
         $form = request();
+
         try {
             foreach ($checks as $check)
             {

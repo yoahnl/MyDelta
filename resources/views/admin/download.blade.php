@@ -12,6 +12,8 @@
         <hr>
 
         <!-- Text input-->
+
+
         <div class="form-group">
             <label class="col-md-4 control-label" for="textinput">Nom de la société</label>
             <div class="col-md-12">
@@ -41,5 +43,14 @@
 
     </fieldset>
 </form>
+
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
 
 @endsection

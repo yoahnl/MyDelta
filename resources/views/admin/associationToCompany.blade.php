@@ -16,19 +16,32 @@
 
                     <div class="widget tags">
                 </aside>
+
+
                 <div class="col-sm-8 col-sm-pull-4">
+
                     @foreach($companys as $company)
+
                         <div class="blog">
                             <div class="blog-item">
                                 <div class="blog-content">
+
                                     <a href="{{URL::to('company/'.$company->name)}}"><h3>{{$company->name}}</h3></a>
                                     <hr>
+
                                     @foreach($associations as $association)
                                         <?php
                                         $companys_association_array;
                                         $companys_association_array = json_decode($company->association);
+                                        if ($companys_association_array == NULL)
+                                            {
+                                                $companys_association_array = array("", "", "", "");
+                                            }
                                         ?>
+
+
                                         @if(in_array($association->name, $companys_association_array))
+
                                             <div class="switch">
                                                 <label>
                                                     <h5>

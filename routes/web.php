@@ -68,38 +68,3 @@ Route::post('stripe', 'AddMoneyController@postStripeTest');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
