@@ -35,7 +35,7 @@
                             <path d="M125.3 36.9l-6.4-3.7 8.5-14.8 6.4 3.7-8.5 14.8z"></path>
                         </g>
                     </svg>
-                    <p class="text-svg">3 associations</p>
+                    <p class="text-svg">{{$association_number}} associations</p>
                 </div>
             </div>
         </div>
@@ -98,6 +98,7 @@
             @endif
             @endforeach
             @endforeach
+
         </div>
         @else
             <div>
@@ -107,6 +108,20 @@
             </div>
             @endif
         </div>
+            <div class="col m3">
+                <div class="card stand-card">
+                    <div class="card-image waves-effect waves-block waves-light size-head-card">
+                        <img class="activator" src="{{asset('images/amp.png')}}" >
+
+                    </div>
+                    <div class="card-content code-card">
+                        <h5 class="center-align">Votre projet</h5>
+                        <p class="localisation"><span>Vous souhaitez pouvoir faire un don gratuit à une association qui n'est pas présentée ici ?Ajoutez-la !</span></p>
+                        <a class="btn-floating btn-large waves-effect waves-light add-btn-code code-enter-page"><i class="material-icons">add</i></a>
+                    </div>
+                </div>
+
+            </div>
     </section>
 
 @endsection

@@ -21,6 +21,7 @@ class CompanyController extends Controller
         $companys = Company::where('name', $id)->get();
         $codes = Code::all();
         $list_associations = Association::all();
+        $association_number;
         foreach ($companys as $company)
         {
             $associations = json_decode($company->association);
@@ -34,8 +35,13 @@ class CompanyController extends Controller
                     $sommes = $code->donation + $sommes;
                 }
             }
-            $number_associations = 0;
-            return view('company.showCompany', compact('company', 'associations', 'id', 'used_codes', 'sommes', 'list_associations'));
+
+            foreach ($list_associations as $association)
+            {
+                $association_number =+1;
+            }
+
+            return view('company.showCompany', compact('company', 'associations', 'id', 'used_codes', 'sommes', 'list_associations', 'association_number'));
         }
     }
 }

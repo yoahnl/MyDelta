@@ -295,12 +295,7 @@ color: #605E5E;
                 <?php echo e(csrf_field()); ?>
 
                 <div class="row contact grey lighten-5">
-
                     <div class="col m6 push-m3">
-                        <h3 class="center-align">
-                            UNE QUESTION ?
-                        </h3>
-                        <hr class="hr-mydelta">
                         <div class="row">
                             <div class="input-field col m5 s12 push-m1">
                                 <i class="material-icons prefix">account_circle</i>
@@ -328,14 +323,11 @@ color: #605E5E;
                             </div>
                         </div>
                         <div class="row center-align">
-                            <button class="waves-effect waves-light btn btn-align-center btn-large" type="submit"> <i class="material-icons right">send</i>ENVOYER</button>
+                            <button class="waves-effect waves-light btn btn-align-center" type="submit"> <i class="material-icons right">send</i>ENVOYER</button>
                         </div>
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
         </div>
     </div>
 

@@ -42,7 +42,7 @@ class AssociationController extends Controller
                 {
                     if ($company->name == $verif->linkedto)
                     {
-                        $association_names = explode(',', $company->association);
+                        $association_names = json_decode($company->association);
                     }
                 }
                     if (!in_array($id, $association_names))
