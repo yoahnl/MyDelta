@@ -10,6 +10,8 @@ $companys = \App\Company::all();
         <ul class="right hide-on-med-and-down">
             <li><a href="{{URL::to('association')}}">Associations</a></li>
             <li><a href="{{URL::to('company')}}">Entreprises</a></li>
+            <li><a href="{{URL::to('about-us')}}">Notre entreprise</a></li>
+            <li><a href="{{URL::to('faq')}}">FAQ</a></li>
 
         @if (Auth::guest())
             @else

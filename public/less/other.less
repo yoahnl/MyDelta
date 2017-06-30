@@ -613,4 +613,68 @@ body{
 			}
 
 	}
+	.nous{
+		span{
+			color: @pink;
+		}
+		.block-row{
+			display: flex;
+			justify-content: center;
+			.block{
+				display: flex;
+				flex-direction: column;
+
+				align-items: center;
+				width: 25%;
+				margin-left: 50px;
+				margin-right: 50px;
+				i{
+					color: @pink;
+					font-size: 50px;
+				}
+				p.title{
+					color: @grey !important;
+					font-size: 15px;
+					font-weight: 900;
+				}
+				p{
+					text-align: center;
+					color: @light-grey;
+				}
+			}
+		}
+		.row-text{
+			display: flex;
+			justify-content: center;
+			.text-block{
+				width: 25%;
+				margin-left: 50px;
+				margin-right: 50px;
+				p.pin-text{
+					color: @pink;
+					font-size: 16px;
+					font-weight: 900;
+				}
+				p{
+					color: @light-grey;
+				}
+			}
+		}
+		.row-profil{
+			display: flex;
+			justify-content: center;
+			margin-top: 50px;
+			img{
+				width: 150px;
+				height: 150px;
+				margin-left: 50px;
+				margin-right: 50px;
+			}
+			p{
+				color: @pink;
+				font-size: 20px;
+				font-weight: 900;
+			}
+		}
+	}
 }

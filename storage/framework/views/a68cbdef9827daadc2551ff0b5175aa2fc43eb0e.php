@@ -1,6 +1,4 @@
-@extends('layout.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <section class="banner-enterprise">
         <div class="row">
@@ -12,7 +10,7 @@
                             <path d="M48.1 120.5l-7.7 13.7c-.5.8-1.3 1.4-2.3 1.4h-7.9c-12.5 0-25 6.1-25 19.7v4c0 1.5-1.2 2.6-2.6 2.6S0 160.7 0 159.2v-4c0-14.7 12.5-24.9 30.3-24.9h6.3l6.9-12.4c.7-1.3 2.3-1.7 3.6-1 1.3.7 1.8 2.3 1 3.6zm40.5 9.8h-6.5l-8.4-12.6c-.8-1.2-2.4-1.5-3.7-.7-1.2.8-1.5 2.4-.7 3.7l9.2 13.7c.5.7 1.3 1.2 2.2 1.2h7.9c13.9 0 21.9 7.2 21.9 19.7v4c0 1.5 1.2 2.6 2.6 2.6 1.5 0 2.6-1.2 2.6-2.6v-4c.1-15.5-10.3-25-27.1-25zm42.1 0h-6.5l-7.2-10.7c5.8-6.2 7.1-15.8 7.3-25.1 5.3-.9 7.2-4.4 7.2-7.7V76.3c0-2.4 0-6.6-5.3-7.7v-8.1c0-8.6-2.3-14.8-6.8-18.5-4.7-3.9-11.5-4.8-20.7-3-1.4.3-2.4 1.7-2.1 3.1.3 1.4 1.6 2.4 3.1 2.1 7.6-1.5 13-.9 16.4 1.9 3.2 2.6 4.8 7.5 4.8 14.4V71c0 1.5 1.2 2.6 2.6 2.6 2.6 0 2.6 0 2.6 2.6v10.5c0 .7 0 2.6-4.6 2.6-1.5 0-2.6 1.2-2.6 2.6 0 9.5-.9 19.6-6.9 24.9l-.1.1c-.8.7-1.8 1.4-2.8 1.9-1.3.7-1.8 2.2-1.2 3.5.5.9 1.4 1.4 2.3 1.4.4 0 .8-.1 1.2-.3.5-.2.9-.5 1.3-.8l7.7 11.5c.5.7 1.3 1.2 2.2 1.2h7.9c13.9 0 21.9 7.2 21.9 19.7v4c0 1.5 1.2 2.6 2.6 2.6s2.6-1.2 2.6-2.6v-4c.3-15.2-10.1-24.7-26.9-24.7zm42.1 0h-6.5l-7.2-10.7c5.8-6.2 7.1-15.8 7.3-25.1 2.1-.3 3.9-1.1 5.1-2.3 1.4-1.4 2.1-3.2 2.1-5.3V76.3c0-2.4 0-6.6-5.3-7.7v-8.1c0-8.6-2.3-14.8-6.8-18.5-4.7-3.8-11.5-4.8-20.7-3-1.4.3-2.4 1.7-2.1 3.1.3 1.4 1.7 2.4 3.1 2.1 7.6-1.5 13-.9 16.4 1.9 3.2 2.6 4.8 7.5 4.8 14.4V71c0 1.5 1.2 2.6 2.6 2.6 2.6 0 2.6 0 2.6 2.6v10.5c0 1-.4 1.4-.5 1.6-.7.7-2.1 1-4 1A2.732 2.732 0 0 0 161 92c0 9.5-.9 19.7-6.9 25l-.1.1c-.8.7-1.8 1.4-2.8 1.9-1.3.7-1.8 2.2-1.2 3.5.5.9 1.4 1.4 2.3 1.4.4 0 .8-.1 1.2-.3.5-.2.9-.5 1.3-.8l7.7 11.5c.5.7 1.3 1.2 2.2 1.2h7.9c13.9 0 21.9 7.2 21.9 19.7v4c0 1.5 1.2 2.6 2.6 2.6s2.6-1.2 2.6-2.6v-4c.3-15.4-10.1-24.9-26.9-24.9zM56.6 117.1c-30.8 0-41.8-17.2-44.5-22.5-.4-.8-.4-1.8.1-2.5 2.5-4.2 9.2-15.9 10.2-20.3 5-21.4 17.5-33.6 34.1-33.6s29.1 12.2 34.1 33.6c1 4.4 7.7 16.1 10.2 20.3.5.8.5 1.7.1 2.5-2.4 5.3-13.5 22.5-44.3 22.5zm39.1-23.6c-2.4-4-8.8-15.4-10.1-20.5-2.1-8.9-9.1-29.6-29-29.6S29.7 64.1 27.6 73c-1.2 5.1-7.7 16.5-10.1 20.5 3.2 5.6 13.4 18.4 39.1 18.4s35.9-12.8 39.1-18.4z"></path>
                         </g>
                     </svg>
-                    <p class="text-svg">{{$used_codes}}</p>
+                    <p class="text-svg"><?php echo e($used_codes); ?></p>
                 </div>
                 <div class="feature">
                     <p class="text-svg">A avoir distribuer</p>
@@ -22,7 +20,7 @@
                         </g>
                     </svg>
 
-                    <p class="text-svg">{{$sommes}} €</p>
+                    <p class="text-svg"><?php echo e($sommes); ?> €</p>
                 </div>
                 <div class="feature">
                     <p class="text-svg">pour soutenir</p>
@@ -35,7 +33,7 @@
                             <path d="M125.3 36.9l-6.4-3.7 8.5-14.8 6.4 3.7-8.5 14.8z"></path>
                         </g>
                     </svg>
-                    <p class="text-svg">{{$association_number}} associations</p>
+                    <p class="text-svg"><?php echo e($association_number); ?> associations</p>
                 </div>
             </div>
         </div>
@@ -75,43 +73,43 @@
     <section class="enterprise-mov">
         <div class="row">
             <div class="col m12">
-                @if($associations != NULL)
-                    @foreach($associations as $association)
-                        @foreach($list_associations as $list_association)
-                        @if($list_association->name == $association)
+                <?php if($associations != NULL): ?>
+                    <?php $__currentLoopData = $associations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $association): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php $__currentLoopData = $list_associations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $list_association): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($list_association->name == $association): ?>
 
                 <div class="content">
                     <div class="col m3">
                         <div class="card stand-card">
                             <div class="card-image waves-effect waves-block waves-light size-head-card">
-                                <img class="activator" src="{{URL::to($list_association->image)}}">
+                                <img class="activator" src="<?php echo e(URL::to($list_association->image)); ?>">
                             </div>
                             <div class="card-content code-card">
-                                <p class="localisation"><img src="{{asset('images/marquer.png')}}" alt=""><span>{{$list_association->location}}</span></p>
-                                <p class="localisation"><img src="{{asset('images/main.png')}}" alt=""><span>{{$list_association->description}}</span></p>
-                                <a class="modal-trigger waves-effect waves-light btn btn-align-center code-enter-page" href="{{URL::to('give/'.$list_association->name)}}">j'ai un delta code !</a>
+                                <p class="localisation"><img src="<?php echo e(asset('images/marquer.png')); ?>" alt=""><span><?php echo e($list_association->location); ?></span></p>
+                                <p class="localisation"><img src="<?php echo e(asset('images/main.png')); ?>" alt=""><span><?php echo e($list_association->description); ?></span></p>
+                                <a class="modal-trigger waves-effect waves-light btn btn-align-center code-enter-page" href="<?php echo e(URL::to('give/'.$list_association->name)); ?>">j'ai un delta code !</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            @endif
-            @endforeach
-            @endforeach
+            <?php endif; ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         </div>
-        @else
+        <?php else: ?>
             <div>
                 <p>
                     l'entreprise ne soutient aucune association.
                 </p>
             </div>
-            @endif
+            <?php endif; ?>
         </div>
             <div class="col m3">
                 <div class="card stand-card">
                     <div class="card-image waves-effect waves-block waves-light size-head-card">
-                        <img class="activator" src="{{asset('images/amp.png')}}" >
+                        <img class="activator" src="<?php echo e(asset('images/amp.png')); ?>" >
 
                     </div>
                     <div class="card-content code-card">
@@ -129,8 +127,9 @@
     <!-- Modal Structure -->
     <div id="add_button" class="modal">
         <div class="modal-content">
-            <form class="form-horizontal" role="form" method="POST" action="{{ url('contact') }}">
-                {{csrf_field()}}
+            <form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('contact')); ?>">
+                <?php echo e(csrf_field()); ?>
+
                 <div class="row contact grey lighten-5">
                     <div class="col m6 push-m3">
                         <h3 class="center-align">
@@ -172,12 +171,12 @@
             </form>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
 
-@section('js')
+<?php $__env->startSection('js'); ?>
 
     <script>
         $('#add_button').modal();
@@ -192,4 +191,5 @@
             }
         );
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

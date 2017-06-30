@@ -229,19 +229,7 @@ color: #605E5E;
             </div>
         </div>
     </section>
-    <section class="time">
-        <div class="content-time">
-            <div data-aos="fade-right" class="txt-time">
-                <a class="txt-time" href="#">
-                    <h3 class="center-align">Vous souhaitez donner de <br> votre temps ?</h3>
-                    <p>Découvrez le mécénat de compétences !</p>
-                </a>
-            </div>
-            <a data-aos="zoom-in" class="bg" href="#">
-                <img src="img/time.png" alt="">
-            </a>
-        </div>
-    </section>
+
     <form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('contact')); ?>">
     <?php echo e(csrf_field()); ?>
 

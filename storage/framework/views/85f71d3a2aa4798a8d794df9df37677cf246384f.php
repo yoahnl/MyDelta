@@ -2,9 +2,7 @@
 <footer>
     <div class="row">
         <div class="col s12 l4 m3 color-grey" style="padding-right:2em; padding-left:2em;margin-top:20px;">
-            <a href="http://yoahnlinard.eu" class="brand-logo">
-                <img src="http://yoahnlinard.eu/images/logo/logo.png" width="200">
-            </a>
+
             <p>Mydelta(n.p.)[maɪdɛltə]: La première plateforme de mécénat d’entreprise collaboratif, qui permet à chaque entreprise de devenir mécène de projets associatifs choisis par ses clients et ses collaborateurs.</p>
         </div>
         <div class="col s12 m2 organization" style="padding-right:2em; padding-left:2em;">

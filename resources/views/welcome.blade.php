@@ -230,7 +230,7 @@ color: #605E5E;
             </div>
         </div>
     </section>
-    
+
     <form class="form-horizontal" role="form" method="POST" action="{{ url('contact') }}">
     {{csrf_field()}}
         <div class="row contact grey lighten-5">

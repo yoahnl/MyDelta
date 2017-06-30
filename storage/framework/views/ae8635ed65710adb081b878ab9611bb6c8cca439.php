@@ -10,6 +10,8 @@ $companys = \App\Company::all();
         <ul class="right hide-on-med-and-down">
             <li><a href="<?php echo e(URL::to('association')); ?>">Associations</a></li>
             <li><a href="<?php echo e(URL::to('company')); ?>">Entreprises</a></li>
+            <li><a href="<?php echo e(URL::to('about-us')); ?>">Notre entreprise</a></li>
+            <li><a href="<?php echo e(URL::to('faq')); ?>">FAQ</a></li>
 
         <?php if(Auth::guest()): ?>
             <?php else: ?>

@@ -50,6 +50,18 @@ Route::post('admin/setcompany', 'AdminController@GetAssociationToCompany')->midd
 Route::get('company/{id}', 'CompanyController@ShowCompany');
 Route::get('company', 'CompanyController@ShowAllCompany');
 Route::post('contact','AdminController@SendMailToSupport');
+Route::get('faq',
+    function ()
+    {
+        return view('other.faq');
+    }
+    );
+Route::get('about-us',
+    function ()
+    {
+        return view('other.about-us');
+    }
+    );
 Auth::routes();
 
 

@@ -36,10 +36,7 @@ class CompanyController extends Controller
                 }
             }
 
-            foreach ($list_associations as $association)
-            {
-                $association_number =+1;
-            }
+            $association_number = count($associations);
 
             return view('company.showCompany', compact('company', 'associations', 'id', 'used_codes', 'sommes', 'list_associations', 'association_number'));
         }
