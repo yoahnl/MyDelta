@@ -79,7 +79,6 @@
                     @foreach($associations as $association)
                         @foreach($list_associations as $list_association)
                         @if($list_association->name == $association)
-
                 <div class="content">
                     <div class="col m3">
                         <div class="card stand-card">
@@ -94,10 +93,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
             @endif
             @endforeach
             @endforeach
+            </div>
 
         </div>
         @else

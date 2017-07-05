@@ -18,10 +18,10 @@
                     <div class="col m3">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="<?php echo e($company->logo); ?>" height="100">
+                                <img class="activator" src="<?php echo e($company->logo); ?>" height="50">
                             </div>
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="<?php echo e($company->image); ?>">
+                                <img class="activator" src="<?php echo e($company->image); ?>" width="70">
                             </div>
                             <div class="card-content">
                                 <span class="card-title activator tilte-enterprise"><?php echo e($company->name); ?></span>

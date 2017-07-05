@@ -12,9 +12,9 @@ $companys = \App\Company::all();
             <li><a href="{{URL::to('company')}}">Entreprises</a></li>
             <li><a href="{{URL::to('about-us')}}">Notre entreprise</a></li>
             <li><a href="{{URL::to('faq')}}">FAQ</a></li>
-
         @if (Auth::guest())
             @else
+
                 <li><a href="{{URL::to('admin')}}">Administration du site</a></li>
                 <li>
                     <a href="{{ url('logout') }}"

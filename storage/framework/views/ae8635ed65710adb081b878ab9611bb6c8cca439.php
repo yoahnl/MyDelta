@@ -12,9 +12,9 @@ $companys = \App\Company::all();
             <li><a href="<?php echo e(URL::to('company')); ?>">Entreprises</a></li>
             <li><a href="<?php echo e(URL::to('about-us')); ?>">Notre entreprise</a></li>
             <li><a href="<?php echo e(URL::to('faq')); ?>">FAQ</a></li>
-
         <?php if(Auth::guest()): ?>
             <?php else: ?>
+
                 <li><a href="<?php echo e(URL::to('admin')); ?>">Administration du site</a></li>
                 <li>
                     <a href="<?php echo e(url('logout')); ?>"

@@ -77,7 +77,6 @@
                     <?php $__currentLoopData = $associations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $association): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php $__currentLoopData = $list_associations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $list_association): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <?php if($list_association->name == $association): ?>
-
                 <div class="content">
                     <div class="col m3">
                         <div class="card stand-card">
@@ -92,10 +91,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <?php endif; ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
 
         </div>
         <?php else: ?>

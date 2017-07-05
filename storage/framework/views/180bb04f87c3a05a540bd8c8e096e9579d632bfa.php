@@ -48,7 +48,7 @@
             <?php endif; ?>
 
         <?php endif; ?>
-            <div class="row bg-asso" style="background-image: URL(<?php echo e($association->logo); ?>);">
+            <div class="row bg-asso" style="background-image: URL(<?php echo e($association->bg_image); ?>); width:100%;">
                 <div class="col m4 offset-m4">
                     <div class="card white position-card">
                         <div class="card-content">
@@ -155,23 +155,27 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <section class="carrousel-section section1" data-midnight="trans" id="section1">
-                    <div id="jssor_1" Class="carousel-one">
+            <div class="slider">
+                <ul class="slides">
+                    <li>
+                        <img src="<?php echo e($association->carrousel_1_image); ?>"> <!-- random image -->
+                        <div class="caption center-align">
 
-                        <div data-u="slides" Class="carousel-two" style="">
-                            <div Class='slide-one' data-p="225.00">
-                            </div>
-                            <div Class='slide-two' data-p="225.00" style="display: flex;">
-                            </div>
-                            <div Class='slide-tree' data-p="225.00" data-po="80% 55%" style="display: none;">
-                            </div>
                         </div>
-                        <span data-u="arrowleft" class="jssora22l" data-autocenter="2"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
-                        <span data-u="arrowright" class="jssora22r" data-autocenter="2"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    </div>
+                    </li>
+                    <li>
+                        <img src="<?php echo e($association->carrousel_2_image); ?>"> <!-- random image -->
+                        <div class="caption left-align">
 
-                </section>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="<?php echo e($association->carrousel_3_image); ?>"> <!-- random image -->
+                        <div class="caption right-align">
+
+                        </div>
+                    </li>
+                </ul>
             </div>
 
             <div class="container social">
@@ -224,7 +228,7 @@
                     </div>
                 </div>
             </div>
-        <?php $__env->stopSection(); ?>
+
 
             <div id="modal1" class="modal">
                 <div class="modal-content">
@@ -249,12 +253,17 @@
                 </div>
 
             </div>
+    </div>
+ <?php $__env->stopSection(); ?>
 <?php $__env->startSection('js'); ?>
     <script>
         $(document).ready(function(){
             $('.modal').modal();
         });
+        $(document).ready(function(){
+            $('.slider').slider();
 
+        });
     </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

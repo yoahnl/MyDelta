@@ -4,8 +4,11 @@
 <!--/head-->
 <?php echo $__env->make('layout.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     <?php echo $__env->yieldContent('before-body'); ?>
+<header>
+    <?php echo $__env->make('layout.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</header>
 <body>
-<?php echo $__env->make('layout.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
 
 <!--Body of 'content' -->
     <?php echo $__env->yieldContent('content'); ?>

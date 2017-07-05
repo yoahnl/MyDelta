@@ -32,7 +32,7 @@ class CreateAssociationsTable extends Migration
             $table->text('right_content1');
             $table->text('right_content2');
             $table->string('logo');
-            $table->string('bg-image');
+            $table->string('bg_image');
             $table->string('cell_1_image');
             $table->string('cell_2_image');
             $table->string('cell_3_image');

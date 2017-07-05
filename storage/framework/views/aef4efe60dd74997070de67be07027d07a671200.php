@@ -21,21 +21,21 @@
                 <div class="col s10">
                     <div class="card-panel hoverable">
                         <a href="<?php echo e(URL::to('give/'.$association->name)); ?>" class="grey_delta">
-                            <img src="<?php echo e($association->image); ?>" alt="<?php echo e($association->name); ?>" width="100">
+                            <img src="<?php echo e($association->logo); ?>" alt="<?php echo e($association->name); ?>" width="100">
                             <h5 class="center grey-black_delta"><?php echo e($association->name); ?></h5>
                             <h6>Catégorie: <?php echo e($association->type); ?></h6>
                             <p class="light"><?php echo e($association->small_description); ?></p>
                             <hr>
                             <?php
-                                $url = "http://".$association->url;
-                                ?>
+                            $url = "http://".$association->url;
+                            ?>
                             <a href=<?php echo e(url($url)); ?> >
                                 <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">En savoir plus</button>
                             </a>
                         </a>
                     </div>
                 </div>
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
 <?php $__env->stopSection(); ?>

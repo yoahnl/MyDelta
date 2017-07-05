@@ -4,8 +4,11 @@
 <!--/head-->
 @include('layout.head')
     @yield('before-body')
+<header>
+    @include('layout.header')
+</header>
 <body>
-@include('layout.header')
+
 
 <!--Body of 'content' -->
     @yield('content')

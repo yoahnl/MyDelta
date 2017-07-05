@@ -22,21 +22,21 @@
                 <div class="col s10">
                     <div class="card-panel hoverable">
                         <a href="{{URL::to('give/'.$association->name)}}" class="grey_delta">
-                            <img src="{{$association->image}}" alt="{{$association->name}}" width="100">
+                            <img src="{{$association->logo}}" alt="{{$association->name}}" width="100">
                             <h5 class="center grey-black_delta">{{$association->name}}</h5>
                             <h6>Catégorie: {{$association->type}}</h6>
                             <p class="light">{{$association->small_description}}</p>
                             <hr>
                             <?php
-                                $url = "http://".$association->url;
-                                ?>
+                            $url = "http://".$association->url;
+                            ?>
                             <a href={{url($url)}} >
                                 <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">En savoir plus</button>
                             </a>
                         </a>
                     </div>
                 </div>
-@endforeach
+            @endforeach
         </div>
     </div>
 @endsection
