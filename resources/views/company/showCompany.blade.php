@@ -83,7 +83,7 @@
                     <div class="col m3">
                         <div class="card stand-card">
                             <div class="card-image waves-effect waves-block waves-light size-head-card">
-                                <img class="activator" src="{{URL::to($list_association->image)}}">
+                                <img class="activator" src="{{URL::to($list_association->logo)}}">
                             </div>
                             <div class="card-content code-card">
                                 <p class="localisation"><img src="{{asset('images/marquer.png')}}" alt=""><span>{{$list_association->location}}</span></p>
