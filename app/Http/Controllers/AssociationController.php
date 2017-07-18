@@ -14,7 +14,16 @@ class AssociationController extends Controller
     {
         $associations = Association::all();
         $cates = Association::all();
-        return view('association.association', compact('associations', 'cates'));
+        $typeAssociations = NULL;
+
+        foreach ($cates as $cate)
+        {
+            if (!in_array($cate->type, $typeAssociations))
+            {
+                array_push($typeAssociations, $cate->type);
+            }
+        }
+        return view('association.association', compact('associations', 'cates', 'typeAssociations'));
     }
 
     public function GiveToAssociation($id)

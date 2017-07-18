@@ -12,8 +12,8 @@
         <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
             <ul class="arrow">
                 <a href="{{URL::to('/association')}}"><h4 class="grey-black_delta">Catégories</h4></a>
-                @foreach($cates as $cate)
-                    <h6> <li><a href="{{URL::to('/association/'.$cate->type)}}" class="grey-text text-darken-2"> > {{$cate->type}}</a></li> </h6>
+                @foreach($typeAssociations as $typeAssociation)
+                    <h6> <li><a href="{{URL::to('/association/'.$typeAssociation->type)}}" class="grey-text text-darken-2"> > {{$typeAssociation->type}}</a></li> </h6>
                 @endforeach
             </ul>
         </div>

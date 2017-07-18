@@ -11,8 +11,8 @@
         <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
             <ul class="arrow">
                 <a href="<?php echo e(URL::to('/association')); ?>"><h4 class="grey-black_delta">Catégories</h4></a>
-                <?php $__currentLoopData = $cates; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cate): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <h6> <li><a href="<?php echo e(URL::to('/association/'.$cate->type)); ?>" class="grey-text text-darken-2"> > <?php echo e($cate->type); ?></a></li> </h6>
+                <?php $__currentLoopData = $typeAssociations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $typeAssociation): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <h6> <li><a href="<?php echo e(URL::to('/association/'.$typeAssociation->type)); ?>" class="grey-text text-darken-2"> > <?php echo e($typeAssociation->type); ?></a></li> </h6>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
         </div>
