@@ -81,7 +81,7 @@
                     <div class="col m3">
                         <div class="card stand-card">
                             <div class="card-image waves-effect waves-block waves-light size-head-card">
-                                <img class="activator" src="<?php echo e(URL::to($list_association->image)); ?>">
+                                <img class="activator" src="<?php echo e(URL::to($list_association->logo)); ?>">
                             </div>
                             <div class="card-content code-card">
                                 <p class="localisation"><img src="<?php echo e(asset('images/marquer.png')); ?>" alt=""><span><?php echo e($list_association->location); ?></span></p>

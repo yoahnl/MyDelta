@@ -84,10 +84,7 @@ color: #605E5E;
             <video src="video/deltavid.mp4" controls poster="img/1.jpg" type="video/mp4">
             </video>
         </div>
-        <div class="vid">
-            <video src="video/deltavid.ogv" controls poster="img/1.jpg" type="video/ogv">
-            </video>
-        </div>
+
     </article>
     <article class="solution grey lighten-5">
         <div class="container">

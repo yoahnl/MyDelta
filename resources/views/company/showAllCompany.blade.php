@@ -8,15 +8,22 @@
             </div>
         </div>
     </div>
-
-
-
+        <?php
+        $i = 0;
+        ?>
 
     <section class="enterprise">
         <div class="row">
             <div class="col s12">
+            @foreach($companys as $company)
+                @if($i >= 3)
+                    <?php echo '<div class="col s12">';
+                    $i = 0;
+                    ?>
+                @endif
+
                 <div class="content">
-                    @foreach($companys as $company)
+
                     <div class="col m3">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
@@ -34,8 +41,15 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
                 </div>
+
+                <?php
+                    if ($i == 3)
+                        {
+                            echo '</div>';
+                        }
+                    $i++; ?>
+                    @endforeach
             </div>
         </div>
     </section>

@@ -10,7 +10,7 @@
             <ul>
                 <li><a href="#">Mentions légales</a></li>
                 <li><a href="#">Conditions d'utilisation</a></li>
-                <li><a href="#">FAQ</a></li>
+                <li><a href="{{URL::to('faq')}}">FAQ</a></li>
             </ul>
         </div>
         <div class="col s12 m2 organization" style="padding-right:2em; padding-left:2em;">
