@@ -13,7 +13,7 @@
             <ul class="arrow">
                 <a href="{{URL::to('/association')}}"><h4 class="grey-black_delta">Catégories</h4></a>
                 @foreach($typeAssociations as $typeAssociation)
-                    <h6> <li><a href="{{URL::to('/association/'.$typeAssociation->type)}}" class="grey-text text-darken-2"> > {{$typeAssociation->type}}</a></li> </h6>
+                    <h6> <li><a href="{{URL::to('/association/'.$typeAssociation)}}" class="grey-text text-darken-2"> > {{$typeAssociation}}</a></li> </h6>
                 @endforeach
             </ul>
         </div>

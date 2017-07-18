@@ -14,7 +14,7 @@ class AssociationController extends Controller
     {
         $associations = Association::all();
         $cates = Association::all();
-        $typeAssociations = NULL;
+        $typeAssociations = array();
 
         foreach ($cates as $cate)
         {
@@ -118,7 +118,16 @@ class AssociationController extends Controller
     {
         $associations = Association::where('type', $id)->get();
         $cates = Association::all();
-        return view('association.association', compact('associations', 'cates'));
+        $typeAssociations = array();
+
+        foreach ($cates as $cate)
+        {
+            if (!in_array($cate->type, $typeAssociations))
+            {
+                array_push($typeAssociations, $cate->type);
+            }
+        }
+        return view('association.association', compact('associations', 'cates', 'typeAssociations'));
 
     }
 }

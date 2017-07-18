@@ -33,7 +33,6 @@
                                         <?php
                                         $companys_association_array;
                                         $companys_association_array = json_decode($company->association);
-                                        var_dump($companys_association_array);
                                         if ($companys_association_array == NULL)
                                             {
                                                 $companys_association_array = array("", "", "", "");

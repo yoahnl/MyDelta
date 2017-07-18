@@ -16,9 +16,13 @@
         <div class="row">
             <div class="col s12">
             @foreach($companys as $company)
-                @if($i >= 3)
-                    <?php echo '<div class="col s12">';
-                    $i = 0;
+                @if($i == 3)
+                    <?php
+                        echo '<br>';
+                        echo '</div>';
+                        echo '<div class="row">';
+                        echo '<div class="col s12">';
+                        $i = 0;
                     ?>
                 @endif
 
@@ -46,6 +50,7 @@
                 <?php
                     if ($i == 3)
                         {
+                            echo '</div>';
                             echo '</div>';
                         }
                     $i++; ?>

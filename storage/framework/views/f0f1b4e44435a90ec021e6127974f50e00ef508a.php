@@ -14,9 +14,13 @@
         <div class="row">
             <div class="col s12">
             <?php $__currentLoopData = $companys; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $company): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php if($i >= 3): ?>
-                    <?php echo '<div class="col s12">';
-                    $i = 0;
+                <?php if($i == 3): ?>
+                    <?php
+                        echo '<br>';
+                        echo '</div>';
+                        echo '<div class="row">';
+                        echo '<div class="col s12">';
+                        $i = 0;
                     ?>
                 <?php endif; ?>
 
@@ -44,6 +48,7 @@
                 <?php
                     if ($i == 3)
                         {
+                            echo '</div>';
                             echo '</div>';
                         }
                     $i++; ?>
