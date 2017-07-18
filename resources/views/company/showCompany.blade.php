@@ -64,40 +64,58 @@
                 </ul>
             </div>
         </div>
-
     </ul>
     <div class="row">
         <div style="text-align: center">
             <a href="#" data-activates="slide-out" class="btn-custom">Commment ça marche ?</a>
         </div>
     </div>
-
     <section class="enterprise-mov">
         <div class="row">
             <div class="col m12">
                 @if($associations != NULL)
-                    @foreach($associations as $association)
-                        @foreach($list_associations as $list_association)
-                        @if($list_association->name == $association)
-                <div class="content">
-                    <div class="col m3">
-                        <div class="card stand-card">
-                            <div class="card-image waves-effect waves-block waves-light size-head-card">
-                                <img class="activator" src="{{URL::to($list_association->logo)}}">
-                            </div>
-                            <div class="card-content code-card">
-                                <p class="localisation"><img src="{{asset('images/marquer.png')}}" alt=""><span>{{$list_association->location}}</span></p>
-                                <p class="localisation"><img src="{{asset('images/main.png')}}" alt=""><span>{{$list_association->description}}</span></p>
-                                <a class="modal-trigger waves-effect waves-light btn btn-align-center code-enter-page" href="{{URL::to('give/'.$list_association->name)}}">j'ai un delta code !</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-            @endforeach
-            @endforeach
-            </div>
 
+                    <?php
+                    $i = 0;
+                    ?>
+                    @foreach($associations as $association)
+                        @if($i == 3)
+                            <?php
+                            echo '<br>';
+                            echo '</div>';
+                            echo '<div class="row">';
+                            echo '<div class="col s12">';
+                            $i = 0;
+                            ?>
+                        @endif
+                        @foreach($list_associations as $list_association)
+                            @if($list_association->name == $association)
+                                <div class="content">
+                                    <div class="col m3">
+                                        <div class="card stand-card">
+                                            <div class="card-image waves-effect waves-block waves-light size-head-card">
+                                                <img class="activator" src="{{URL::to($list_association->logo)}}">
+                                            </div>
+                                            <div class="card-content code-card">
+                                                <p class="localisation"><img src="{{asset('images/marquer.png')}}" alt=""><span>{{$list_association->location}}</span></p>
+                                                <p class="localisation"><img src="{{asset('images/main.png')}}" alt=""><span>{{$list_association->description}}</span></p>
+                                                <a class="modal-trigger waves-effect waves-light btn btn-align-center code-enter-page" href="{{URL::to('give/'.$list_association->name)}}">j'ai un delta code !</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <?php
+                                if ($i == 3)
+                                {
+                                    echo '</div>';
+                                    echo '</div>';
+                                }
+                                $i++; ?>
+                            @endif
+                        @endforeach
+                    @endforeach
+            </div>
         </div>
         @else
             <div>
@@ -106,25 +124,24 @@
                 </p>
             </div>
             @endif
-        </div>
-            <div class="col m3">
-                <div class="card stand-card">
-                    <div class="card-image waves-effect waves-block waves-light size-head-card">
-                        <img class="activator" src="{{asset('images/amp.png')}}" >
+            </div>
+            <div class="row flex-row-ide">
+                <div class="col m3 marr">
+                    <div class="card stand-card">
+                        <div class="card-image waves-effect waves-block waves-light size-head-card">
+                            <img class="activator" src="{{asset('images/amp.png')}}" >
 
-                    </div>
-                    <div class="card-content code-card">
-                        <h5 class="center-align">Votre projet</h5>
-                        <p class="localisation"><span>Vous souhaitez pouvoir faire un don gratuit à une association qui n'est pas présentée ici ?Ajoutez-la !</span></p>
-                        <a class="btn-floating btn-large waves-effect waves-light add-btn-code code-enter-page" href="#add_button"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="card-content code-card">
+                            <h5 class="center-align">Votre projet</h5>
+                            <p class="localisation"><span>Vous souhaitez pouvoir faire un don gratuit à une association qui n'est pas présentée ici ?Ajoutez-la !</span></p>
+                            <a class="btn-floating btn-large waves-effect waves-light add-btn-code code-enter-page" href="#add_button"><i class="material-icons">add</i></a>
+                        </div>
                     </div>
                 </div>
             </div>
+
     </section>
-
-
-
-
     <!-- Modal Structure -->
     <div id="add_button" class="modal">
         <div class="modal-content">
@@ -133,7 +150,7 @@
                 <div class="row contact grey lighten-5">
                     <div class="col m6 push-m3">
                         <h3 class="center-align">
-                           Parlez nous de l'association que vous souhaitez soutenir.
+                            Parlez nous de l'association que vous souhaitez soutenir.
                         </h3>
                         <div class="row">
                             <div class="input-field col m5 s12 push-m1">
@@ -172,10 +189,6 @@
         </div>
     </div>
 @endsection
-
-
-
-
 @section('js')
 
     <script>

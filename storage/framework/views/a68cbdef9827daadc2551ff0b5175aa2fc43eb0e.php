@@ -74,26 +74,61 @@
         <div class="row">
             <div class="col m12">
                 <?php if($associations != NULL): ?>
+
+                    <?php
+                    $i = 0;
+                    ?>
                     <?php $__currentLoopData = $associations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $association): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($i == 3): ?>
+                            <?php
+                            echo '<br>';
+                            echo '</div>';
+                            echo '<div class="row">';
+                            echo '<div class="col s12">';
+                            $i = 0;
+                            ?>
+                        <?php endif; ?>
                         <?php $__currentLoopData = $list_associations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $list_association): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if($list_association->name == $association): ?>
-                <div class="content">
-                    <div class="col m3">
-                        <div class="card stand-card">
-                            <div class="card-image waves-effect waves-block waves-light size-head-card">
-                                <img class="activator" src="<?php echo e(URL::to($list_association->logo)); ?>">
-                            </div>
-                            <div class="card-content code-card">
-                                <p class="localisation"><img src="<?php echo e(asset('images/marquer.png')); ?>" alt=""><span><?php echo e($list_association->location); ?></span></p>
-                                <p class="localisation"><img src="<?php echo e(asset('images/main.png')); ?>" alt=""><span><?php echo e($list_association->description); ?></span></p>
-                                <a class="modal-trigger waves-effect waves-light btn btn-align-center code-enter-page" href="<?php echo e(URL::to('give/'.$list_association->name)); ?>">j'ai un delta code !</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($list_association->name == $association): ?>
+                                <div class="content">
+                                    <div class="col m3">
+                                        <div class="card stand-card">
+                                            <div class="card-image waves-effect waves-block waves-light size-head-card">
+                                                <img class="activator" src="<?php echo e(URL::to($list_association->logo)); ?>">
+                                            </div>
+                                            <div class="card-content code-card">
+                                                <p class="localisation"><img src="<?php echo e(asset('images/marquer.png')); ?>" alt=""><span><?php echo e($list_association->location); ?></span></p>
+                                                <p class="localisation"><img src="<?php echo e(asset('images/main.png')); ?>" alt=""><span><?php echo e($list_association->description); ?></span></p>
+                                                <a class="modal-trigger waves-effect waves-light btn btn-align-center code-enter-page" href="<?php echo e(URL::to('give/'.$list_association->name)); ?>">j'ai un delta code !</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <?php
+                                if ($i == 3)
+                                {
+                                    echo '</div>';
+                                    echo '</div>';
+                                }
+                                $i++; ?>
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
 
         </div>
@@ -104,20 +139,23 @@
                 </p>
             </div>
             <?php endif; ?>
-        </div>
-            <div class="col m3">
-                <div class="card stand-card">
-                    <div class="card-image waves-effect waves-block waves-light size-head-card">
-                        <img class="activator" src="<?php echo e(asset('images/amp.png')); ?>" >
+            </div>
+            <div class="row flex-row-ide">
+                <div class="col m3 marr">
+                    <div class="card stand-card">
+                        <div class="card-image waves-effect waves-block waves-light size-head-card">
+                            <img class="activator" src="<?php echo e(asset('images/amp.png')); ?>" >
 
-                    </div>
-                    <div class="card-content code-card">
-                        <h5 class="center-align">Votre projet</h5>
-                        <p class="localisation"><span>Vous souhaitez pouvoir faire un don gratuit à une association qui n'est pas présentée ici ?Ajoutez-la !</span></p>
-                        <a class="btn-floating btn-large waves-effect waves-light add-btn-code code-enter-page" href="#add_button"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="card-content code-card">
+                            <h5 class="center-align">Votre projet</h5>
+                            <p class="localisation"><span>Vous souhaitez pouvoir faire un don gratuit à une association qui n'est pas présentée ici ?Ajoutez-la !</span></p>
+                            <a class="btn-floating btn-large waves-effect waves-light add-btn-code code-enter-page" href="#add_button"><i class="material-icons">add</i></a>
+                        </div>
                     </div>
                 </div>
             </div>
+
     </section>
 
 
@@ -132,7 +170,7 @@
                 <div class="row contact grey lighten-5">
                     <div class="col m6 push-m3">
                         <h3 class="center-align">
-                           Parlez nous de l'association que vous souhaitez soutenir.
+                            Parlez nous de l'association que vous souhaitez soutenir.
                         </h3>
                         <div class="row">
                             <div class="input-field col m5 s12 push-m1">
@@ -191,4 +229,5 @@
         );
     </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
