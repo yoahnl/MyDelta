@@ -62,14 +62,12 @@
                 </ul>
             </div>
         </div>
-
     </ul>
     <div class="row">
         <div style="text-align: center">
-            <a href="#" data-activates="slide-out" class="btn-custom">Commment ça marche ?</a>
+            <a href="#" data-activates="slide-out" class="waves-effect waves-light btn-large" style="background: orange" id="bouton">Commment ça marche ?</a>
         </div>
     </div>
-
     <section class="enterprise-mov">
         <div class="row">
             <div class="col m12">
@@ -115,22 +113,7 @@
                             <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
-
         </div>
         <?php else: ?>
             <div>
@@ -157,10 +140,6 @@
             </div>
 
     </section>
-
-
-
-
     <!-- Modal Structure -->
     <div id="add_button" class="modal">
         <div class="modal-content">
@@ -209,10 +188,6 @@
         </div>
     </div>
 <?php $__env->stopSection(); ?>
-
-
-
-
 <?php $__env->startSection('js'); ?>
 
     <script>
@@ -220,7 +195,7 @@
     </script>
 
     <script>
-        $('.btn-custom').sideNav({
+        $('#bouton').sideNav({
                 menuWidth: 700, // Default is 300
                 edge: 'right', // Choose the horizontal origin
                 closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor

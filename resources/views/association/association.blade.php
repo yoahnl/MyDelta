@@ -1,41 +1,55 @@
 @extends('layout.master')
 @section('content')
-    <br>
-    <div class="row">
-        <div class="col s12">
-            <div id="associationmydelta1_hype_container" style="margin:auto;position:relative;width:450px;height:100px;overflow:hidden;" aria-live="polite">
-                <script type="text/javascript" charset="utf-8" src="association_mydelta_1.hyperesources/associationmydelta1_hype_generated_script.js?37685"></script>
+
+
+    <div class="row association-content-all">
+        <h3 class="center-align">Nos association</h3>
+        <div class="col m12">
+            <div class="col m2">
+                <ul class="selec-asso">
+                    <li class="center-align titleli">Filtres :</li>
+                    @foreach($typeAssociations as $typeAssociation)
+
+                        <a href="{{URL::to('/association/'.$typeAssociation)}}"><li class="hoverli">{{$typeAssociation}}</li></a>
+                    @endforeach
+                </ul>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
-            <ul class="arrow">
-                <a href="{{URL::to('/association')}}"><h4 class="grey-black_delta">Catégories</h4></a>
-                @foreach($typeAssociations as $typeAssociation)
-                    <h6> <li><a href="{{URL::to('/association/'.$typeAssociation)}}" class="grey-text text-darken-2"> > {{$typeAssociation}}</a></li> </h6>
-                @endforeach
-            </ul>
-        </div>
-        <div class="col s12 m8 l9"> <!-- Note that "m8 l9" was added -->
+            <?php
+            $i = 0;
+            ?>
             @foreach($associations as $association)
-                <div class="col s10">
-                    <div class="card-panel hoverable">
-                        <a href="{{URL::to('give/'.$association->name)}}" class="grey_delta">
-                            <img src="{{$association->logo}}" alt="{{$association->name}}" width="100">
-                            <h5 class="center grey-black_delta">{{$association->name}}</h5>
-                            <h6>Catégorie: {{$association->type}}</h6>
-                            <p class="light">{{$association->small_description}}</p>
-                            <hr>
-                            <?php
-                            $url = "http://".$association->url;
-                            ?>
-                            <a href={{url($url)}} >
-                                <button type="submit" id="singlebutton" name="singlebutton" class="btn btn-primary">En savoir plus</button>
+                @if($i == 4)
+                    <?php
+                    echo '<br>';
+                    echo '</div>';
+                    echo '<div class="row">';
+                    echo '<div class="col s12">';
+                    $i = 0;
+                    ?>
+                @endif
+                <div class="col m2">
+                    <div class="card card-size sticky-action" style="overflow: hidden;">
+                        <div class="card-image waves-effect waves-block waves-light bg-img-card card-one">
+                            <img class="activator" src="{{$association->logo}}">
+                        </div>
+                        <div class="card-content">
+          <span class="card-title tilte-asso grey-text text-darken-4">{{$association->name}}
+              <div class="separator"></div>
+          </span>
+                            <p>Qui cum venisset ob haec festinatis itineribus Antiochiam, praestrictis palatii ianuis, contempto Caesare</p>
+                            <a href="{{URL::to('give/'.$association->name)}}">
+                                <span class="card-title activator footer-card-active grey-text text-darken-4"><span class="name-asso"></span><i class="btn waves-effect white grey-text darken-text-2 right more-info">en savoir plus</i></span>
                             </a>
-                        </a>
+                        </div>
                     </div>
                 </div>
+                <?php
+                if ($i == 4)
+                {
+                    echo '</div>';
+                    echo '</div>';
+                }
+                $i++; ?>
             @endforeach
         </div>
     </div>

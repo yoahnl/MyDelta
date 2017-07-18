@@ -10,13 +10,14 @@
     <!-- End of CDN -->
 
 
-    <link rel="stylesheet" href="<?php echo e(URL::asset('css/styles.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(URL::asset('css/other.css')); ?>">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
     <script src="https://use.fontawesome.com/cc93d367a5.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel='stylesheet prefetch' href="<?php echo e(URL::asset('css/animatecss.css')); ?>">
+
+    <link rel="stylesheet" href="<?php echo e(URL::asset('css/styles.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('css/other.css')); ?>">
 
 </head>
 
