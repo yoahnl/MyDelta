@@ -83,23 +83,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 
-Route::get('test', function ()
-{
-    $i;
 
-    $i = 0;
-    if ($i < 3)
-    {
-        return "poulet";
-    }
-    else
-    {
-        return "KFC";
-    }
-
-    return $i;
-}
-);
 
 
 

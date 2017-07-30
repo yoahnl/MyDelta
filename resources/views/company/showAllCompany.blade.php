@@ -38,7 +38,7 @@
                             </div>
                             <div class="card-content">
                                 <span class="card-title activator tilte-enterprise">{{$company->name}}</span>
-                                <p>Sed fruatur sane hoc solacio atque hanc insignem ignominiam, quoniam uni praeter se inusta sit, putet esse leviorem, dum modo, cuius exemplo se consolatur, eius exitum expectet, praesertim cum in Albucio nec Pisonis libidines nec audacia Gabini fuerit ac tamen hac una plaga conciderit, ignominia senatus</p>
+                                <p>{{$company->description}}</p>
                                 <div class="btn-info-card">
                                     <a href="{{URL::to('company/'.$company->name)}}" class="waves-effect waves-light btn btn-align-center">Découvrir</a>
                                 </div>
